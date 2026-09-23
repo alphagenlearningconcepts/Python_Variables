@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Python Variables for Kids - Interactive Presentation</title>
+  <title>Python Variables for Kids - Alphagen Learning</title>
   
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Poppins for brand typography & Fira Code for code blocks -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
   
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -21,17 +21,28 @@
         extend: {
           colors: {
             brand: {
-              purple: '#3b0764',
-              'purple-light': '#581c87',
-              'purple-soft': '#faf5ff',
-              yellow: '#facc15',
-              'yellow-hover': '#eab308',
-              accent: '#a855f7'
+              purple: '#5E48C4',
+              'purple-dark': '#4A3AAD',
+              'purple-mid': '#7B6ED4',
+              'purple-pale': '#EAE7FE',
+              'purple-ghost': '#F5F4FF',
+              yellow: '#FFD071',
+              'yellow-dark': '#E6B84A',
+              'yellow-pale': '#FFF3CC',
+              'near-black': '#1A1A1A',
+              'dark-grey': '#404048',
+              'mid-grey': '#888896',
+              'light-grey': '#F2F2F4',
+              cyan: '#59E4FB',
+              'cyan-dark': '#055F6E',
+              'cyan-pale': '#E0FAFE',
+              coral: '#ED5661',
+              'coral-dark': '#993040',
+              'coral-pale': '#FFF0F1'
             }
           },
           fontFamily: {
-            fredoka: ['Fredoka', 'sans-serif'],
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            sans: ['Poppins', 'sans-serif'],
             code: ['Fira Code', 'monospace']
           }
         }
@@ -41,16 +52,16 @@
 
   <style>
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #0f172a;
-      color: #2d154a;
+      font-family: 'Poppins', sans-serif;
+      background-color: #F5F4FF;
+      color: #1A1A1A;
       overflow-x: hidden;
       user-select: none;
     }
 
     .slide-stage {
       width: 100%;
-      max-width: 1100px;
+      max-width: 1140px;
       aspect-ratio: 16 / 9;
       margin: 0 auto;
       position: relative;
@@ -59,21 +70,21 @@
     @media (max-width: 768px) {
       .slide-stage {
         aspect-ratio: auto;
-        min-height: 600px;
+        min-height: 680px;
       }
     }
 
     /* Glass Liquid Fill Animation */
     .glass-container {
       position: relative;
-      width: 110px;
-      height: 150px;
-      border: 6px solid #a855f7;
+      width: 130px;
+      height: 170px;
+      border: 7px solid #5E48C4;
       border-top: none;
-      border-radius: 0 0 24px 24px;
-      background: rgba(255, 255, 255, 0.2);
+      border-radius: 0 0 28px 28px;
+      background: rgba(94, 72, 196, 0.08);
       overflow: hidden;
-      box-shadow: inset 0 0 15px rgba(168, 85, 247, 0.3);
+      box-shadow: inset 0 0 18px rgba(94, 72, 196, 0.2);
     }
 
     .liquid {
@@ -83,7 +94,7 @@
       right: 0;
       height: 0%;
       transition: height 0.7s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s ease;
-      border-radius: 0 0 18px 18px;
+      border-radius: 0 0 20px 20px;
     }
 
     .liquid-wave {
@@ -111,15 +122,15 @@
     }
     .draggable-item:active {
       cursor: grabbing;
-      transform: scale(1.05);
+      transform: scale(1.04);
     }
 
     .drop-zone {
       transition: all 0.2s ease;
     }
     .drop-zone.drag-over {
-      border-color: #facc15 !important;
-      background-color: rgba(250, 204, 21, 0.15) !important;
+      border-color: #5E48C4 !important;
+      background-color: #EAE7FE !important;
       transform: scale(1.02);
     }
 
@@ -136,7 +147,7 @@
       transform: translateY(0);
     }
 
-    /* Bounce & Shake Animations */
+    /* Animations */
     @keyframes bounce-gentle {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
@@ -155,147 +166,155 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between p-2 md:p-6 bg-slate-950 text-slate-100">
+<body class="min-h-screen flex flex-col justify-between p-3 md:p-6 bg-brand-purple-ghost text-brand-near-black">
 
-  <header class="w-full max-w-6xl mx-auto mb-3 flex flex-wrap items-center justify-between gap-3 bg-purple-950/80 backdrop-blur border border-purple-800/60 p-3 md:p-4 rounded-2xl shadow-xl">
-    <div class="flex items-center gap-3">
-      <div class="bg-yellow-400 text-purple-950 p-2.5 rounded-xl font-black text-xl flex items-center justify-center shadow-lg">
+  <header class="w-full max-w-6xl mx-auto mb-4 flex flex-wrap items-center justify-between gap-3 bg-white border-2 border-brand-purple-pale p-4 md:p-5 rounded-2xl shadow-sm">
+    <div class="flex items-center gap-3.5">
+      <div class="bg-brand-purple text-white p-3.5 rounded-2xl font-extrabold text-2xl flex items-center justify-center shadow-md">
         <i class="fa-solid fa-code"></i>
       </div>
       <div>
-        <h1 class="font-fredoka text-lg md:text-xl text-yellow-300 font-bold tracking-wide">Python Variables for Kids</h1>
-        <p class="text-xs text-purple-200">Fun Interactive Coding Lesson</p>
+        <h1 class="font-extrabold text-xl md:text-2xl text-brand-purple tracking-tight">Python Variables for Kids</h1>
+        <p class="text-xs md:text-sm text-brand-dark-grey font-medium">Alphagen Learning Interactive Module</p>
       </div>
     </div>
 
-    <!-- Progress Dots & Sound Control -->
-    <div class="flex items-center gap-3">
-      <div class="hidden sm:flex items-center gap-1.5" id="dots-container">
+    <!-- Progress Dots & Controls -->
+    <div class="flex items-center gap-4">
+      <div class="hidden sm:flex items-center gap-2" id="dots-container">
         <!-- Dots generated dynamically in JS -->
       </div>
-      <div class="bg-purple-900/90 border border-purple-700 px-3 py-1.5 rounded-xl font-fredoka text-yellow-300 text-sm font-semibold">
+      <div class="bg-brand-purple-pale border border-brand-purple-mid/30 px-4 py-2 rounded-xl font-bold text-brand-purple text-base">
         Slide <span id="current-slide-num">1</span> / <span id="total-slides-num">11</span>
       </div>
-      <button id="sound-toggle" onclick="toggleSound()" class="bg-purple-800 hover:bg-purple-700 text-yellow-300 p-2.5 rounded-xl transition-all" title="Toggle Sound Effects">
-        <i class="fa-solid fa-volume-high" id="sound-icon"></i>
+      <button id="sound-toggle" onclick="toggleSound()" class="bg-brand-purple-ghost hover:bg-brand-purple-pale text-brand-purple p-3 rounded-xl transition-all border border-brand-purple-pale" title="Toggle Sound Effects">
+        <i class="fa-solid fa-volume-high text-xl" id="sound-icon"></i>
       </button>
     </div>
   </header>
 
   <main class="w-full flex-grow flex items-center justify-center">
-    <div class="slide-stage w-full bg-purple-900/90 border-2 border-purple-700 rounded-3xl shadow-2xl p-5 md:p-8 flex flex-col justify-between overflow-hidden relative">
+    <div class="slide-stage w-full bg-white border-2 border-brand-purple-pale rounded-3xl shadow-xl p-6 md:p-9 flex flex-col justify-between overflow-hidden relative">
 
       <!-- SLIDE 1: Title Slide -->
-      <div class="slide-panel active flex-col justify-center items-center text-center h-full gap-5" id="slide-1">
-        <h1 class="font-fredoka text-5xl md:text-7xl text-white font-extrabold leading-tight">
-          What is a <span class="text-yellow-400 underline decoration-purple-500 decoration-wavy">Variable</span>?
+      <div class="slide-panel active flex-col justify-center items-center text-center h-full gap-7" id="slide-1">
+        <div class="inline-block bg-brand-purple-pale text-brand-purple px-5 py-2 rounded-full text-base font-bold tracking-wide uppercase">
+          Interactive Coding Lesson
+        </div>
+        <h1 class="font-extrabold text-5xl sm:text-6xl md:text-7xl text-brand-near-black leading-tight max-w-4xl">
+          What is a <span class="text-brand-purple underline decoration-brand-yellow decoration-wavy underline-offset-8">Variable</span>?
         </h1>
+        <p class="text-brand-dark-grey text-xl md:text-2xl max-w-2xl font-normal">
+       
+        </p>
 
-        <button onclick="nextSlide()" class="mt-6 bg-yellow-400 hover:bg-yellow-300 text-purple-950 font-fredoka text-2xl font-bold px-10 py-4 rounded-2xl shadow-xl transition-all hover:scale-105 active:scale-95 flex items-center gap-3">
+        <button onclick="nextSlide()" class="mt-4 bg-brand-yellow hover:bg-brand-yellow-dark text-brand-near-black font-extrabold text-2xl md:text-3xl px-12 py-5 rounded-2xl shadow-md transition-all hover:scale-105 active:scale-95 flex items-center gap-4">
           <span>Start Exploring!</span>
           <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
 
+      <!-- SLIDE 2: Glass Quiz -->
       <div class="slide-panel flex-col h-full justify-between" id="slide-2">
         <div>
-          <div class="flex justify-between items-center mb-3">
+          <div class="flex justify-between items-center mb-4">
             <div>
-              <h2 class="font-fredoka text-2xl md:text-3xl text-white font-bold">What do you do with an empty glass?</h2>
+              <span class="text-brand-purple font-bold text-sm uppercase tracking-wider">Concept Warm-up</span>
+              <h2 class="text-3xl md:text-4xl text-brand-near-black font-bold">What do you do with an empty glass?</h2>
             </div>
-            <div class="bg-yellow-400/20 text-yellow-300 border border-yellow-400/40 px-3 py-1 rounded-xl text-xs font-bold flex items-center gap-2">
-              <i class="fa-solid fa-lightbulb"></i> Tap the best choice!
+            <div class="bg-brand-yellow/30 text-brand-near-black border border-brand-yellow-dark/40 px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2">
+              <i class="fa-solid fa-lightbulb text-brand-yellow-dark text-lg"></i> Tap the best choice!
             </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
             <!-- Glass Illustration -->
-            <div class="md:col-span-5 bg-purple-950/80 border border-purple-700 p-5 rounded-3xl flex flex-col items-center text-center">
-              <div class="glass-container mb-3 flex items-end justify-center">
-                <div class="liquid bg-purple-400/30" style="height: 15%;"></div>
+            <div class="md:col-span-5 bg-brand-purple-ghost border-2 border-brand-purple-pale p-6 rounded-3xl flex flex-col items-center text-center">
+              <div class="glass-container mb-4 flex items-end justify-center">
+                <div class="liquid bg-brand-purple-mid/30" style="height: 15%;"></div>
               </div>
-              <h3 class="font-fredoka text-xl text-white font-bold">The Empty Glass</h3>
-              <p class="text-xs md:text-sm text-purple-200 mt-1">A glass is a container waiting to hold something!</p>
+              <h3 class="text-2xl text-brand-purple font-bold">The Empty Glass</h3>
+              <p class="text-base text-brand-dark-grey mt-2">A glass is a container waiting to hold something!</p>
             </div>
 
             <!-- Quiz Options -->
-            <div class="md:col-span-7 flex flex-col gap-2.5">
-              <button onclick="checkGlassQuiz(this, false, 'Ouch! Glass is not food! ❌')" class="quiz-option bg-purple-950/60 hover:bg-purple-800/80 border-2 border-purple-700 text-white p-3.5 rounded-2xl text-left font-semibold text-sm md:text-base flex justify-between items-center transition-all">
+            <div class="md:col-span-7 flex flex-col gap-3.5">
+              <button onclick="checkGlassQuiz(this, false, 'Ouch! Glass is not food! ❌')" class="quiz-option bg-brand-light-grey hover:bg-brand-purple-pale border-2 border-slate-200 text-brand-near-black p-4.5 rounded-2xl text-left font-bold text-lg md:text-xl flex justify-between items-center transition-all">
                 <span>A) Eat the glass whole</span>
-                <i class="fa-regular fa-circle text-purple-400"></i>
+                <i class="fa-regular fa-circle text-brand-mid-grey text-xl"></i>
               </button>
 
-              <button onclick="checkGlassQuiz(this, true, 'CORRECT! 🎉 A glass holds liquids, just like variables hold data!')" class="quiz-option bg-purple-950/60 hover:bg-purple-800/80 border-2 border-purple-700 text-white p-3.5 rounded-2xl text-left font-semibold text-sm md:text-base flex justify-between items-center transition-all">
+              <button onclick="checkGlassQuiz(this, true, 'CORRECT! 🎉 A glass holds liquids, just like variables hold data!')" class="quiz-option bg-brand-light-grey hover:bg-brand-purple-pale border-2 border-slate-200 text-brand-near-black p-4.5 rounded-2xl text-left font-bold text-lg md:text-xl flex justify-between items-center transition-all">
                 <span>B) Fill it with a liquid!</span>
-                <i class="fa-regular fa-circle text-purple-400"></i>
+                <i class="fa-regular fa-circle text-brand-mid-grey text-xl"></i>
               </button>
 
-              <button onclick="checkGlassQuiz(this, false, 'Glass breaks! You cannot fold it! ❌')" class="quiz-option bg-purple-950/60 hover:bg-purple-800/80 border-2 border-purple-700 text-white p-3.5 rounded-2xl text-left font-semibold text-sm md:text-base flex justify-between items-center transition-all">
+              <button onclick="checkGlassQuiz(this, false, 'Glass breaks! You cannot fold it! ❌')" class="quiz-option bg-brand-light-grey hover:bg-brand-purple-pale border-2 border-slate-200 text-brand-near-black p-4.5 rounded-2xl text-left font-semibold text-lg md:text-xl flex justify-between items-center transition-all">
                 <span>C) Fold it like paper</span>
-                <i class="fa-regular fa-circle text-purple-400"></i>
+                <i class="fa-regular fa-circle text-brand-mid-grey text-xl"></i>
               </button>
 
-              <button onclick="checkGlassQuiz(this, false, 'Let\'s put something yummy inside! ❌')" class="quiz-option bg-purple-950/60 hover:bg-purple-800/80 border-2 border-purple-700 text-white p-3.5 rounded-2xl text-left font-semibold text-sm md:text-base flex justify-between items-center transition-all">
+              <button onclick="checkGlassQuiz(this, false, 'Let\'s put something yummy inside! ❌')" class="quiz-option bg-brand-light-grey hover:bg-brand-purple-pale border-2 border-slate-200 text-brand-near-black p-4.5 rounded-2xl text-left font-semibold text-lg md:text-xl flex justify-between items-center transition-all">
                 <span>D) Leave it empty forever</span>
-                <i class="fa-regular fa-circle text-purple-400"></i>
+                <i class="fa-regular fa-circle text-brand-mid-grey text-xl"></i>
               </button>
             </div>
           </div>
         </div>
 
-        <div id="glass-quiz-feedback" class="mt-3 p-3 rounded-2xl bg-purple-950/90 border border-purple-700 text-center font-bold text-sm text-white hidden">
+        <div id="glass-quiz-feedback" class="mt-3 p-4 rounded-2xl bg-brand-purple-ghost border border-brand-purple-pale text-center font-bold text-lg text-brand-near-black hidden">
         </div>
       </div>
 
       <div class="slide-panel flex-col h-full justify-between" id="slide-3">
         <div>
-          <div class="mb-3">
-            <span class="font-fredoka text-yellow-400 text-xs md:text-sm font-bold uppercase tracking-wider">Let's Understand Variables</span>
-            <h2 class="font-fredoka text-2xl md:text-3xl text-white font-bold">One Glass, Different Drinks!</h2>
+          <div class="mb-4">
+            <span class="text-brand-purple text-sm font-bold uppercase tracking-wider">Interactive Experiment</span>
+            <h2 class="text-3xl md:text-4xl text-brand-near-black font-bold">One Glass, Different Drinks!</h2>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
             <!-- Glass Display -->
-            <div class="md:col-span-5 bg-purple-950/80 border-2 border-purple-700 p-5 rounded-3xl flex flex-col items-center text-center">
-              <div class="glass-container mb-3">
+            <div class="md:col-span-5 bg-brand-purple-ghost border-2 border-brand-purple-pale p-6 rounded-3xl flex flex-col items-center text-center">
+              <div class="glass-container mb-4">
                 <div id="sim-liquid" class="liquid bg-orange-500" style="height: 0%;">
                   <div class="liquid-wave"></div>
                 </div>
               </div>
-              <div class="font-code bg-purple-950 text-yellow-300 border border-yellow-400/40 px-4 py-1.5 rounded-xl text-base font-bold shadow-inner">
-                glass = <span id="glass-var-value" class="text-green-400">"Empty"</span>
+              <div class="font-code bg-white text-brand-purple border-2 border-brand-purple-mid/40 px-5 py-2.5 rounded-xl text-xl font-bold shadow-sm">
+                glass = <span id="glass-var-value" class="text-emerald-600">"Empty"</span>
               </div>
-              <p id="liquid-desc" class="text-xs text-purple-200 mt-2">Click any drink button on the right to pour it in!</p>
+              <p id="liquid-desc" class="text-base text-brand-dark-grey mt-2.5">Click any drink button on the right to pour it in!</p>
             </div>
 
             <!-- Liquid Buttons -->
-            <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <button onclick="fillGlass('Orange Juice 🍊', '#f97316', 'Juice')" class="bg-amber-950/60 hover:bg-amber-900 border-2 border-amber-500 p-3.5 rounded-2xl flex flex-col items-center text-center transition-all hover:scale-105 active:scale-95">
-                <span class="text-3xl mb-1">🍊</span>
-                <span class="font-fredoka font-bold text-amber-300 text-base">Orange Juice</span>
+            <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <button onclick="fillGlass('Orange Juice 🍊', '#f97316', 'Juice')" class="bg-amber-50 hover:bg-amber-100 border-2 border-amber-300 p-5 rounded-2xl flex flex-col items-center text-center transition-all hover:scale-105 active:scale-95 shadow-sm">
+                <span class="text-4xl mb-1.5">🍊</span>
+                <span class="font-bold text-amber-900 text-xl">Orange Juice</span>
               </button>
 
-              <button onclick="fillGlass('Fresh Water 💧', '#38bdf8', 'Water')" class="bg-sky-950/60 hover:bg-sky-900 border-2 border-sky-400 p-3.5 rounded-2xl flex flex-col items-center text-center transition-all hover:scale-105 active:scale-95">
-                <span class="text-3xl mb-1">💧</span>
-                <span class="font-fredoka font-bold text-sky-300 text-base">Fresh Water</span>
+              <button onclick="fillGlass('Fresh Water 💧', '#38bdf8', 'Water')" class="bg-sky-50 hover:bg-sky-100 border-2 border-sky-300 p-5 rounded-2xl flex flex-col items-center text-center transition-all hover:scale-105 active:scale-95 shadow-sm">
+                <span class="text-4xl mb-1.5">💧</span>
+                <span class="font-bold text-sky-900 text-xl">Fresh Water</span>
               </button>
 
-              <button onclick="fillGlass('Hot Coffee ☕', '#78350f', 'Coffee')" class="bg-amber-950/80 hover:bg-amber-900 border-2 border-amber-700 p-3.5 rounded-2xl flex flex-col items-center text-center transition-all hover:scale-105 active:scale-95">
-                <span class="text-3xl mb-1">☕</span>
-                <span class="font-fredoka font-bold text-amber-400 text-base">Hot Coffee</span>
+              <button onclick="fillGlass('Hot Coffee ☕', '#78350f', 'Coffee')" class="bg-orange-50 hover:bg-orange-100 border-2 border-amber-700/30 p-5 rounded-2xl flex flex-col items-center text-center transition-all hover:scale-105 active:scale-95 shadow-sm">
+                <span class="text-4xl mb-1.5">☕</span>
+                <span class="font-bold text-amber-950 text-xl">Hot Coffee</span>
               </button>
 
-              <button onclick="fillGlass('Green Slime 🧪', '#22c55e', 'Slime')" class="bg-emerald-950/60 hover:bg-emerald-900 border-2 border-emerald-500 p-3.5 rounded-2xl flex flex-col items-center text-center transition-all hover:scale-105 active:scale-95">
-                <span class="text-3xl mb-1">🧪</span>
-                <span class="font-fredoka font-bold text-emerald-300 text-base">Magic Slime</span>
+              <button onclick="fillGlass('Green Slime 🧪', '#22c55e', 'Slime')" class="bg-emerald-50 hover:bg-emerald-100 border-2 border-emerald-300 p-5 rounded-2xl flex flex-col items-center text-center transition-all hover:scale-105 active:scale-95 shadow-sm">
+                <span class="text-4xl mb-1.5">🧪</span>
+                <span class="font-bold text-emerald-900 text-xl">Magic Slime</span>
               </button>
             </div>
           </div>
         </div>
 
-        <div class="bg-yellow-400/20 border border-yellow-400/40 p-4 rounded-2xl flex items-center gap-3">
-          <i class="fa-solid fa-bolt text-yellow-400 text-2xl"></i>
-          <p class="text-sm md:text-base text-yellow-200 leading-snug">
+        <div class="bg-brand-yellow-pale border-2 border-brand-yellow/60 p-4.5 rounded-2xl flex items-center gap-4">
+          <i class="fa-solid fa-bolt text-brand-yellow-dark text-3xl"></i>
+          <p class="text-base md:text-lg text-brand-near-black leading-snug">
             <strong>NOTICE:</strong> The glass stays the same, but the drink inside can <strong>CHANGE</strong> anytime! That's how Python variables work!
           </p>
         </div>
@@ -303,56 +322,56 @@
 
       <div class="slide-panel flex-col h-full justify-between" id="slide-4">
         <div>
-          <div class="mb-3">
-            <span class="font-fredoka text-yellow-400 text-xs md:text-sm font-bold uppercase tracking-wider">Activity</span>
-            <h2 class="font-fredoka text-2xl md:text-3xl text-white font-bold">Let's Understand Data Types</h2>
+          <div class="mb-4">
+            <span class="text-brand-purple text-sm font-bold uppercase tracking-wider">Hands-on Activity</span>
+            <h2 class="text-3xl md:text-4xl text-brand-near-black font-bold">Let's Understand Data Types</h2>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
             <!-- Left Options -->
-            <div class="md:col-span-5 flex flex-col gap-2.5">
-              <p class="text-xs text-purple-200 font-bold uppercase tracking-wider">Drag or click a item to store it:</p>
+            <div class="md:col-span-5 flex flex-col gap-3.5">
+              <p class="text-sm text-brand-dark-grey font-bold uppercase tracking-wider">Drag or click an item to store it:</p>
               
-              <div draggable="true" ondragstart="handleDragStart(event, '10', 'Integer (int)', 'Integer means a whole number like 10, 50, or 100!')" onclick="dropValueIntoBox('10', 'Integer (int)', 'Integer means a whole number like 10, 50, or 100!')" class="draggable-item bg-purple-950 border-2 border-yellow-400/60 hover:border-yellow-400 p-3 rounded-2xl flex items-center justify-between text-white shadow-md">
-                <div class="flex items-center gap-2.5">
-                  <span class="bg-yellow-400 text-purple-950 font-bold px-2 py-0.5 rounded-lg font-code">10</span>
-                  <span class="font-bold text-sm">Number 10</span>
+              <div draggable="true" ondragstart="handleDragStart(event, '10', 'Integer (int)', 'Integer means a whole number like 10, 50, or 100!')" onclick="dropValueIntoBox('10', 'Integer (int)', 'Integer means a whole number like 10, 50, or 100!')" class="draggable-item bg-white border-2 border-brand-purple-pale hover:border-brand-purple p-4 rounded-2xl flex items-center justify-between text-brand-near-black shadow-sm">
+                <div class="flex items-center gap-3.5">
+                  <span class="bg-brand-purple-pale text-brand-purple font-bold px-3.5 py-1 rounded-xl font-code text-lg">10</span>
+                  <span class="font-bold text-lg">Number 10</span>
                 </div>
-                <span class="text-xs bg-purple-900 text-yellow-300 px-2 py-0.5 rounded-md font-semibold">Integer (int)</span>
+                <span class="text-xs md:text-sm bg-brand-yellow-pale text-brand-near-black border border-brand-yellow-dark/30 px-3 py-1 rounded-md font-bold">Integer (int)</span>
               </div>
 
-              <div draggable="true" ondragstart="handleDragStart(event, '4.50', 'Float', 'Float means a number with a decimal point like 4.50 or 9.99!')" onclick="dropValueIntoBox('4.50', 'Float', 'Float means a number with a decimal point like 4.50 or 9.99!')" class="draggable-item bg-purple-950 border-2 border-sky-400/60 hover:border-sky-400 p-3 rounded-2xl flex items-center justify-between text-white shadow-md">
-                <div class="flex items-center gap-2.5">
-                  <span class="bg-sky-400 text-purple-950 font-bold px-2 py-0.5 rounded-lg font-code">4.50</span>
-                  <span class="font-bold text-sm">Price $4.50</span>
+              <div draggable="true" ondragstart="handleDragStart(event, '4.50', 'Float', 'Float means a number with a decimal point like 4.50 or 9.99!')" onclick="dropValueIntoBox('4.50', 'Float', 'Float means a number with a decimal point like 4.50 or 9.99!')" class="draggable-item bg-white border-2 border-brand-purple-pale hover:border-brand-purple p-4 rounded-2xl flex items-center justify-between text-brand-near-black shadow-sm">
+                <div class="flex items-center gap-3.5">
+                  <span class="bg-brand-cyan-pale text-brand-cyan-dark font-bold px-3.5 py-1 rounded-xl font-code text-lg">4.50</span>
+                  <span class="font-bold text-lg">Price $4.50</span>
                 </div>
-                <span class="text-xs bg-purple-900 text-sky-300 px-2 py-0.5 rounded-md font-semibold">Float</span>
+                <span class="text-xs md:text-sm bg-brand-cyan-pale text-brand-cyan-dark px-3 py-1 rounded-md font-bold">Float</span>
               </div>
 
-              <div draggable="true" ondragstart="handleDragStart(event, '&quot;Alex&quot;', 'String (str)', 'String means text wrapped inside quotes &quot; &quot; like &quot;Alex&quot;!')" onclick="dropValueIntoBox('&quot;Alex&quot;', 'String (str)', 'String means text wrapped inside quotes &quot; &quot; like &quot;Alex&quot;!')" class="draggable-item bg-purple-950 border-2 border-pink-400/60 hover:border-pink-400 p-3 rounded-2xl flex items-center justify-between text-white shadow-md">
-                <div class="flex items-center gap-2.5">
-                  <span class="bg-pink-400 text-purple-950 font-bold px-2 py-0.5 rounded-lg font-code">"Alex"</span>
-                  <span class="font-bold text-sm">Name "Alex"</span>
+              <div draggable="true" ondragstart="handleDragStart(event, '&quot;Alex&quot;', 'String (str)', 'String means text wrapped inside quotes &quot; &quot; like &quot;Alex&quot;!')" onclick="dropValueIntoBox('&quot;Alex&quot;', 'String (str)', 'String means text wrapped inside quotes &quot; &quot; like &quot;Alex&quot;!')" class="draggable-item bg-white border-2 border-brand-purple-pale hover:border-brand-purple p-4 rounded-2xl flex items-center justify-between text-brand-near-black shadow-sm">
+                <div class="flex items-center gap-3.5">
+                  <span class="bg-brand-coral-pale text-brand-coral-dark font-bold px-3.5 py-1 rounded-xl font-code text-lg">"Alex"</span>
+                  <span class="font-bold text-lg">Name "Alex"</span>
                 </div>
-                <span class="text-xs bg-purple-900 text-pink-300 px-2 py-0.5 rounded-md font-semibold">String (str)</span>
+                <span class="text-xs md:text-sm bg-brand-coral-pale text-brand-coral-dark px-3 py-1 rounded-md font-bold">String (str)</span>
               </div>
             </div>
 
             <!-- Variable Box Drop Target -->
-            <div class="md:col-span-7 bg-purple-950/80 border-2 border-dashed border-yellow-400 rounded-3xl p-5 flex flex-col items-center text-center drop-zone" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
-              <div class="bg-yellow-400 text-purple-950 font-code font-bold px-4 py-1 rounded-xl text-base mb-2 shadow-md">
-                player_data = <span id="box-stored-display">?</span>
+            <div class="md:col-span-7 bg-brand-purple-ghost border-2 border-dashed border-brand-purple p-6 rounded-3xl flex flex-col items-center text-center drop-zone" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+              <div class="bg-brand-purple text-white font-code font-bold px-6 py-2 rounded-xl text-xl mb-3 shadow-md">
+                player_data = <span id="box-stored-display" class="text-brand-yellow">?</span>
               </div>
 
-              <div class="w-full bg-purple-900/90 border-2 border-purple-600 rounded-2xl p-5 min-h-[140px] flex flex-col items-center justify-center relative">
-                <i class="fa-solid fa-box-open text-4xl text-yellow-400 mb-1" id="box-icon"></i>
-                <div id="box-value-large" class="font-fredoka text-2xl text-white font-extrabold my-1">
+              <div class="w-full bg-white border-2 border-brand-purple-pale rounded-2xl p-6 min-h-[150px] flex flex-col items-center justify-center relative shadow-sm">
+                <i class="fa-solid fa-box-open text-5xl text-brand-purple mb-2" id="box-icon"></i>
+                <div id="box-value-large" class="text-2xl md:text-3xl text-brand-near-black font-extrabold my-1">
                   [ Click or Drag Here ]
                 </div>
-                <div id="box-type-badge" class="mt-1 text-xs font-semibold text-yellow-300 bg-purple-950 px-3 py-0.5 rounded-full border border-purple-700 hidden">
+                <div id="box-type-badge" class="mt-1 text-sm font-semibold text-brand-purple bg-brand-purple-pale px-4 py-1 rounded-full border border-brand-purple-mid/30 hidden">
                 </div>
               </div>
-              <p id="box-explanation" class="text-xs text-purple-200 mt-2 font-medium">
+              <p id="box-explanation" class="text-base text-brand-dark-grey mt-3 font-medium">
                 Click any item on the left to place it inside our Python variable box!
               </p>
             </div>
@@ -362,50 +381,51 @@
 
       <div class="slide-panel flex-col h-full justify-between" id="slide-5">
         <div>
-          <div class="flex justify-between items-center mb-3">
+          <div class="flex justify-between items-center mb-4">
             <div>
-              <span class="font-fredoka text-yellow-400 text-xs md:text-sm font-bold uppercase tracking-wider">Challenge 1</span>
-              <h2 class="font-fredoka text-2xl md:text-3xl text-white font-bold">Pick 3 Real Python Data Types!</h2>
+              <span class="text-brand-purple font-bold text-sm uppercase tracking-wider">Challenge 1</span>
+              <h2 class="text-3xl md:text-4xl text-brand-near-black font-bold">Pick 3 Real Python Data Types!</h2>
             </div>
-            <div class="bg-purple-950 border border-purple-700 px-3 py-1 rounded-xl text-yellow-300 font-bold text-xs md:text-sm">
-              Found: <span id="found-types-count" class="text-white text-base">0</span> / 3
+            <div class="bg-brand-purple-pale border border-brand-purple-mid/30 px-4 py-2 rounded-xl text-brand-purple font-bold text-base md:text-lg">
+              Found: <span id="found-types-count" class="text-brand-purple font-extrabold text-xl">0</span> / 3
             </div>
           </div>
 
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-            <button onclick="toggleDataTypeCard(this, true, 'Integer', 'Holds whole numbers like 10, 50, or -5')" class="datatype-card bg-purple-950/80 hover:bg-purple-800 border-2 border-purple-700 p-4 rounded-2xl text-left flex items-center justify-between transition-all">
-              <span class="font-fredoka font-bold text-white text-lg">Integer</span>
-              <i class="fa-regular fa-circle text-purple-400 status-icon"></i>
+          <!-- Technical terms replaces non-technical decoys -->
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4.5">
+            <button onclick="toggleDataTypeCard(this, true, 'Integer', 'Holds whole numbers like 10, 50, or -5')" class="datatype-card bg-brand-purple-ghost hover:bg-brand-purple-pale border-2 border-brand-purple-pale p-5 rounded-2xl text-left flex items-center justify-between transition-all">
+              <span class="font-extrabold text-brand-near-black text-xl md:text-2xl">Integer</span>
+              <i class="fa-regular fa-circle text-brand-mid-grey status-icon text-2xl"></i>
             </button>
 
-            <button onclick="toggleDataTypeCard(this, false, 'Soup', 'Soup is lunch, not a Python code type! 🍲')" class="datatype-card bg-purple-950/80 hover:bg-purple-800 border-2 border-purple-700 p-4 rounded-2xl text-left flex items-center justify-between transition-all">
-              <span class="font-fredoka font-bold text-white text-lg">Soup</span>
-              <i class="fa-regular fa-circle text-purple-400 status-icon"></i>
+            <button onclick="toggleDataTypeCard(this, false, 'Decimals', 'Decimals is a math term! In Python, numbers with decimals are called Float!')" class="datatype-card bg-brand-purple-ghost hover:bg-brand-purple-pale border-2 border-brand-purple-pale p-5 rounded-2xl text-left flex items-center justify-between transition-all">
+              <span class="font-extrabold text-brand-near-black text-xl md:text-2xl">Decimals</span>
+              <i class="fa-regular fa-circle text-brand-mid-grey status-icon text-2xl"></i>
             </button>
 
-            <button onclick="toggleDataTypeCard(this, true, 'Float', 'Holds decimal numbers like 3.14 or 99.9')" class="datatype-card bg-purple-950/80 hover:bg-purple-800 border-2 border-purple-700 p-4 rounded-2xl text-left flex items-center justify-between transition-all">
-              <span class="font-fredoka font-bold text-white text-lg">Float</span>
-              <i class="fa-regular fa-circle text-purple-400 status-icon"></i>
+            <button onclick="toggleDataTypeCard(this, false, 'Functions', 'Functions execute actions/commands, but are not a data type! ⚙️')" class="datatype-card bg-brand-purple-ghost hover:bg-brand-purple-pale border-2 border-brand-purple-pale p-5 rounded-2xl text-left flex items-center justify-between transition-all">
+              <span class="font-extrabold text-brand-near-black text-xl md:text-2xl">Functions</span>
+              <i class="fa-regular fa-circle text-brand-mid-grey status-icon text-2xl"></i>
             </button>
 
-            <button onclick="toggleDataTypeCard(this, false, 'Pencil', 'Pencil is a school tool! ✏️')" class="datatype-card bg-purple-950/80 hover:bg-purple-800 border-2 border-purple-700 p-4 rounded-2xl text-left flex items-center justify-between transition-all">
-              <span class="font-fredoka font-bold text-white text-lg">Pencil</span>
-              <i class="fa-regular fa-circle text-purple-400 status-icon"></i>
+            <button onclick="toggleDataTypeCard(this, true, 'Float', 'Holds numbers with decimal points like 3.14 or 99.9')" class="datatype-card bg-brand-purple-ghost hover:bg-brand-purple-pale border-2 border-brand-purple-pale p-5 rounded-2xl text-left flex items-center justify-between transition-all">
+              <span class="font-extrabold text-brand-near-black text-xl md:text-2xl">Float</span>
+              <i class="fa-regular fa-circle text-brand-mid-grey status-icon text-2xl"></i>
             </button>
 
-            <button onclick="toggleDataTypeCard(this, true, 'String', 'Holds text inside quotation marks &quot; &quot;')" class="datatype-card bg-purple-950/80 hover:bg-purple-800 border-2 border-purple-700 p-4 rounded-2xl text-left flex items-center justify-between transition-all">
-              <span class="font-fredoka font-bold text-white text-lg">String</span>
-              <i class="fa-regular fa-circle text-purple-400 status-icon"></i>
+            <button onclick="toggleDataTypeCard(this, true, 'String', 'Holds text inside quotation marks &quot; &quot;')" class="datatype-card bg-brand-purple-ghost hover:bg-brand-purple-pale border-2 border-brand-purple-pale p-5 rounded-2xl text-left flex items-center justify-between transition-all">
+              <span class="font-extrabold text-brand-near-black text-xl md:text-2xl">String</span>
+              <i class="fa-regular fa-circle text-brand-mid-grey status-icon text-2xl"></i>
             </button>
 
-            <button onclick="toggleDataTypeCard(this, false, 'Gummy Bear', 'Gummy bear is candy! 🍬')" class="datatype-card bg-purple-950/80 hover:bg-purple-800 border-2 border-purple-700 p-4 rounded-2xl text-left flex items-center justify-between transition-all">
-              <span class="font-fredoka font-bold text-white text-lg">Gummy Bear</span>
-              <i class="fa-regular fa-circle text-purple-400 status-icon"></i>
+            <button onclick="toggleDataTypeCard(this, false, 'Arrays', 'Arrays are data structures used to store lists of items, not a basic primitive type!')" class="datatype-card bg-brand-purple-ghost hover:bg-brand-purple-pale border-2 border-brand-purple-pale p-5 rounded-2xl text-left flex items-center justify-between transition-all">
+              <span class="font-extrabold text-brand-near-black text-xl md:text-2xl">Arrays</span>
+              <i class="fa-regular fa-circle text-brand-mid-grey status-icon text-2xl"></i>
             </button>
           </div>
         </div>
 
-        <div id="datatype-quiz-feedback" class="mt-2 p-2.5 rounded-2xl bg-purple-950 border border-purple-700 text-center font-bold text-xs md:text-sm text-yellow-300 flex items-center justify-center min-h-[44px]">
+        <div id="datatype-quiz-feedback" class="mt-4 p-4 rounded-2xl bg-brand-purple-ghost border border-brand-purple-pale text-center font-bold text-base md:text-lg text-brand-purple flex items-center justify-center min-h-[52px]">
           Tap cards above to find the 3 real Python data types!
         </div>
       </div>
@@ -413,69 +433,69 @@
       <div class="slide-panel flex-col h-full justify-between" id="slide-6">
         <div>
           <div class="mb-3">
-            <span class="font-fredoka text-yellow-400 text-xs md:text-sm font-bold uppercase tracking-wider">Bonus Data Type ⚡</span>
-            <h2 class="font-fredoka text-2xl md:text-3xl text-white font-bold">The Boolean Data Type!</h2>
+            <span class="text-brand-purple font-bold text-sm uppercase tracking-wider">Bonus Data Type ⚡</span>
+            <h2 class="text-3xl md:text-4xl text-brand-near-black font-bold">The Boolean Data Type!</h2>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-            <!-- Left Info & Status Display Cards -->
-            <div class="md:col-span-5 flex flex-col gap-2.5">
-              <p class="text-purple-200 text-xs md:text-sm leading-relaxed">
-                A <strong>Boolean</strong> can only hold two values: <span class="text-green-400 font-bold">True</span> or <span class="text-red-400 font-bold">False</span>.
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            <!-- Left Info & Cards -->
+            <div class="md:col-span-5 flex flex-col gap-3.5">
+              <p class="text-brand-dark-grey text-base md:text-lg leading-relaxed">
+                A <strong>Boolean</strong> can only hold two values: <span class="text-emerald-700 font-bold">True</span> or <span class="text-brand-coral-dark font-bold">False</span>.
               </p>
 
-              <div class="grid grid-cols-3 gap-2 mt-1">
-                <!-- Light Bulb Display -->
-                <div class="bg-purple-950 border-2 border-purple-700 p-2.5 rounded-2xl flex flex-col items-center text-center">
-                  <i id="bulb-icon" class="fa-solid fa-lightbulb text-3xl text-slate-600 transition-all duration-300"></i>
-                  <div class="font-code text-[11px] font-bold mt-1 text-white">Light</div>
-                  <span id="bulb-bool-text" class="text-[10px] text-red-400 font-bold">False</span>
+              <div class="grid grid-cols-3 gap-3 mt-1">
+                <!-- Bulb Display -->
+                <div class="bg-brand-purple-ghost border-2 border-brand-purple-pale p-3.5 rounded-2xl flex flex-col items-center text-center">
+                  <i id="bulb-icon" class="fa-solid fa-lightbulb text-4xl text-slate-400 transition-all duration-300"></i>
+                  <div class="font-code text-sm font-bold mt-2 text-brand-near-black">Light</div>
+                  <span id="bulb-bool-text" class="text-sm text-brand-coral font-bold">False</span>
                 </div>
 
-                <!-- Magic Power Display -->
-                <div id="magic-display-card" class="bg-purple-950 border-2 border-purple-700 p-2.5 rounded-2xl flex flex-col items-center text-center">
-                  <i id="magic-icon" class="fa-solid fa-wand-magic-sparkles text-3xl text-yellow-400 transition-all duration-300"></i>
-                  <div class="font-code text-[11px] font-bold mt-1 text-white">Magic</div>
-                  <span id="magic-bool-text" class="text-[10px] text-green-400 font-bold">True</span>
+                <!-- Magic Display -->
+                <div id="magic-display-card" class="bg-brand-purple-ghost border-2 border-brand-purple-pale p-3.5 rounded-2xl flex flex-col items-center text-center">
+                  <i id="magic-icon" class="fa-solid fa-wand-magic-sparkles text-4xl text-brand-yellow-dark transition-all duration-300"></i>
+                  <div class="font-code text-sm font-bold mt-2 text-brand-near-black">Magic</div>
+                  <span id="magic-bool-text" class="text-sm text-emerald-600 font-bold">True</span>
                 </div>
 
                 <!-- Game Over Display -->
-                <div id="gameover-display-card" class="bg-purple-950 border-2 border-purple-700 p-2.5 rounded-2xl flex flex-col items-center text-center">
-                  <i id="gameover-icon" class="fa-solid fa-gamepad text-3xl text-emerald-400 transition-all duration-300"></i>
-                  <div class="font-code text-[11px] font-bold mt-1 text-white">Game</div>
-                  <span id="gameover-bool-text" class="text-[10px] text-red-400 font-bold">False</span>
+                <div id="gameover-display-card" class="bg-brand-purple-ghost border-2 border-brand-purple-pale p-3.5 rounded-2xl flex flex-col items-center text-center">
+                  <i id="gameover-icon" class="fa-solid fa-gamepad text-4xl text-emerald-500 transition-all duration-300"></i>
+                  <div class="font-code text-sm font-bold mt-2 text-brand-near-black">Game</div>
+                  <span id="gameover-bool-text" class="text-sm text-brand-coral font-bold">False</span>
                 </div>
               </div>
             </div>
 
             <!-- Right Switches -->
-            <div class="md:col-span-7 flex flex-col gap-3">
-              <div class="bg-purple-950/80 border border-purple-700 p-3.5 rounded-2xl flex items-center justify-between">
+            <div class="md:col-span-7 flex flex-col gap-3.5">
+              <div class="bg-brand-purple-ghost border border-brand-purple-pale p-4.5 rounded-2xl flex items-center justify-between">
                 <div>
-                  <div class="font-code font-bold text-white text-sm">is_light_on</div>
-                  <div class="text-xs text-purple-300">Controls light bulb status</div>
+                  <div class="font-code font-bold text-brand-purple text-lg">is_light_on</div>
+                  <div class="text-sm text-brand-dark-grey">Controls light bulb status</div>
                 </div>
-                <button onclick="toggleBooleanSwitch('is_light_on')" class="bg-red-500 hover:bg-red-600 text-white font-fredoka font-bold px-4 py-1.5 rounded-xl shadow-md transition-all flex items-center gap-2" id="btn-is_light_on">
+                <button onclick="toggleBooleanSwitch('is_light_on')" class="bg-brand-coral hover:bg-brand-coral-dark text-white font-bold text-base px-5 py-2.5 rounded-xl shadow transition-all flex items-center gap-2" id="btn-is_light_on">
                   <span>FALSE</span> 🔴
                 </button>
               </div>
 
-              <div class="bg-purple-950/80 border border-purple-700 p-3.5 rounded-2xl flex items-center justify-between">
+              <div class="bg-brand-purple-ghost border border-brand-purple-pale p-4.5 rounded-2xl flex items-center justify-between">
                 <div>
-                  <div class="font-code font-bold text-white text-sm">has_magic_power</div>
-                  <div class="text-xs text-purple-300">Does magician hero have magic?</div>
+                  <div class="font-code font-bold text-brand-purple text-lg">has_magic_power</div>
+                  <div class="text-sm text-brand-dark-grey">Does hero have magic power?</div>
                 </div>
-                <button onclick="toggleBooleanSwitch('has_magic_power')" class="bg-green-500 hover:bg-green-600 text-white font-fredoka font-bold px-4 py-1.5 rounded-xl shadow-md transition-all flex items-center gap-2" id="btn-has_magic_power">
+                <button onclick="toggleBooleanSwitch('has_magic_power')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-base px-5 py-2.5 rounded-xl shadow transition-all flex items-center gap-2" id="btn-has_magic_power">
                   <span>TRUE</span> 🟢
                 </button>
               </div>
 
-              <div class="bg-purple-950/80 border border-purple-700 p-3.5 rounded-2xl flex items-center justify-between">
+              <div class="bg-brand-purple-ghost border border-brand-purple-pale p-4.5 rounded-2xl flex items-center justify-between">
                 <div>
-                  <div class="font-code font-bold text-white text-sm">is_game_over</div>
-                  <div class="text-xs text-purple-300">Is video game finished?</div>
+                  <div class="font-code font-bold text-brand-purple text-lg">is_game_over</div>
+                  <div class="text-sm text-brand-dark-grey">Is video game finished?</div>
                 </div>
-                <button onclick="toggleBooleanSwitch('is_game_over')" class="bg-red-500 hover:bg-red-600 text-white font-fredoka font-bold px-4 py-1.5 rounded-xl shadow-md transition-all flex items-center gap-2" id="btn-is_game_over">
+                <button onclick="toggleBooleanSwitch('is_game_over')" class="bg-brand-coral hover:bg-brand-coral-dark text-white font-bold text-base px-5 py-2.5 rounded-xl shadow transition-all flex items-center gap-2" id="btn-is_game_over">
                   <span>FALSE</span> 🔴
                 </button>
               </div>
@@ -487,67 +507,67 @@
       <div class="slide-panel flex-col h-full justify-between" id="slide-7">
         <div>
           <div class="mb-3">
-            <span class="font-fredoka text-yellow-400 text-xs md:text-sm font-bold uppercase tracking-wider">Simple Rules</span>
-            <h2 class="font-fredoka text-2xl md:text-3xl text-white font-bold">4 Rules for Variable Names</h2>
+            <span class="text-brand-purple font-bold text-sm uppercase tracking-wider">Simple Rules</span>
+            <h2 class="text-3xl md:text-4xl text-brand-near-black font-bold">4 Rules for Variable Names</h2>
           </div>
 
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3.5">
             <!-- Rule 1 -->
-            <div class="bg-purple-950/80 border-2 border-purple-700 p-3.5 rounded-2xl flex flex-col justify-between">
+            <div class="bg-brand-purple-ghost border-2 border-brand-purple-pale p-4.5 rounded-2xl flex flex-col justify-between">
               <div>
-                <span class="bg-red-500/20 text-red-400 border border-red-500/40 font-fredoka font-bold text-[10px] px-2 py-0.5 rounded-lg">RULE #1</span>
-                <h3 class="font-fredoka text-sm md:text-base text-white font-bold mt-1.5">No Numbers First</h3>
-                <p class="text-[11px] text-purple-200 mt-1 mb-2">Cannot start with a digit (0-9).</p>
+                <span class="bg-brand-coral-pale text-brand-coral-dark font-bold text-xs px-2.5 py-0.5 rounded-lg border border-brand-coral/30">RULE #1</span>
+                <h3 class="text-lg text-brand-near-black font-bold mt-2">No Numbers First</h3>
+                <p class="text-xs md:text-sm text-brand-dark-grey mt-1 mb-2">Cannot start with a digit (0-9).</p>
               </div>
-              <div class="font-code text-[11px] space-y-1">
-                <div class="bg-red-950/80 p-1.5 rounded text-red-300">1st_place ❌</div>
-                <div class="bg-emerald-950/80 p-1.5 rounded text-emerald-300">place_1 ✅</div>
+              <div class="font-code text-sm space-y-1">
+                <div class="bg-brand-coral-pale p-2 rounded text-brand-coral-dark font-semibold">1st_place ❌</div>
+                <div class="bg-emerald-100 p-2 rounded text-emerald-800 font-semibold">place_1 ✅</div>
               </div>
             </div>
 
             <!-- Rule 2 -->
-            <div class="bg-purple-950/80 border-2 border-purple-700 p-3.5 rounded-2xl flex flex-col justify-between">
+            <div class="bg-brand-purple-ghost border-2 border-brand-purple-pale p-4.5 rounded-2xl flex flex-col justify-between">
               <div>
-                <span class="bg-red-500/20 text-red-400 border border-red-500/40 font-fredoka font-bold text-[10px] px-2 py-0.5 rounded-lg">RULE #2</span>
-                <h3 class="font-fredoka text-sm md:text-base text-white font-bold mt-1.5">No Spaces</h3>
-                <p class="text-[11px] text-purple-200 mt-1 mb-2">Use underscore <code class="text-yellow-300">_</code> instead!</p>
+                <span class="bg-brand-coral-pale text-brand-coral-dark font-bold text-xs px-2.5 py-0.5 rounded-lg border border-brand-coral/30">RULE #2</span>
+                <h3 class="text-lg text-brand-near-black font-bold mt-2">No Spaces</h3>
+                <p class="text-xs md:text-sm text-brand-dark-grey mt-1 mb-2">Use underscore <code class="text-brand-purple font-bold">_</code> instead!</p>
               </div>
-              <div class="font-code text-[11px] space-y-1">
-                <div class="bg-red-950/80 p-1.5 rounded text-red-300">my score ❌</div>
-                <div class="bg-emerald-950/80 p-1.5 rounded text-emerald-300">my_score ✅</div>
+              <div class="font-code text-sm space-y-1">
+                <div class="bg-brand-coral-pale p-2 rounded text-brand-coral-dark font-semibold">my score ❌</div>
+                <div class="bg-emerald-100 p-2 rounded text-emerald-800 font-semibold">my_score ✅</div>
               </div>
             </div>
 
             <!-- Rule 3 -->
-            <div class="bg-purple-950/80 border-2 border-purple-700 p-3.5 rounded-2xl flex flex-col justify-between">
+            <div class="bg-brand-purple-ghost border-2 border-brand-purple-pale p-4.5 rounded-2xl flex flex-col justify-between">
               <div>
-                <span class="bg-red-500/20 text-red-400 border border-red-500/40 font-fredoka font-bold text-[10px] px-2 py-0.5 rounded-lg">RULE #3</span>
-                <h3 class="font-fredoka text-sm md:text-base text-white font-bold mt-1.5">No Symbols</h3>
-                <p class="text-[11px] text-purple-200 mt-1 mb-2">No <code class="text-yellow-300">@ # $ % !</code> allowed.</p>
+                <span class="bg-brand-coral-pale text-brand-coral-dark font-bold text-xs px-2.5 py-0.5 rounded-lg border border-brand-coral/30">RULE #3</span>
+                <h3 class="text-lg text-brand-near-black font-bold mt-2">No Symbols</h3>
+                <p class="text-xs md:text-sm text-brand-dark-grey mt-1 mb-2">No <code class="text-brand-purple font-bold">@ # $ % !</code> allowed.</p>
               </div>
-              <div class="font-code text-[11px] space-y-1">
-                <div class="bg-red-950/80 p-1.5 rounded text-red-300">coins$ ❌</div>
-                <div class="bg-emerald-950/80 p-1.5 rounded text-emerald-300">coins ✅</div>
+              <div class="font-code text-sm space-y-1">
+                <div class="bg-brand-coral-pale p-2 rounded text-brand-coral-dark font-semibold">coins# ❌</div>
+                <div class="bg-emerald-100 p-2 rounded text-emerald-800 font-semibold">coins ✅</div>
               </div>
             </div>
 
             <!-- Rule 4 -->
-            <div class="bg-purple-950/80 border-2 border-yellow-400/80 p-3.5 rounded-2xl flex flex-col justify-between">
+            <div class="bg-brand-purple-ghost border-2 border-brand-purple-pale p-4.5 rounded-2xl flex flex-col justify-between">
               <div>
-                <span class="bg-yellow-400/20 text-yellow-300 border border-yellow-400/40 font-fredoka font-bold text-[10px] px-2 py-0.5 rounded-lg">RULE #4</span>
-                <h3 class="font-fredoka text-sm md:text-base text-white font-bold mt-1.5">No Python Words</h3>
-                <p class="text-[11px] text-purple-200 mt-1 mb-2">Cannot use commands like <code class="text-yellow-300">print</code>!</p>
+                <span class="bg-brand-yellow-pale text-brand-near-black font-bold text-xs px-2.5 py-0.5 rounded-lg border border-brand-yellow-dark/30">RULE #4</span>
+                <h3 class="text-lg text-brand-near-black font-bold mt-2">No Python Words</h3>
+                <p class="text-xs md:text-sm text-brand-dark-grey mt-1 mb-2">Cannot use commands like <code class="text-brand-purple font-bold">print</code>!</p>
               </div>
-              <div class="font-code text-[11px] space-y-1">
-                <div class="bg-red-950/80 p-1.5 rounded text-red-300">print ❌</div>
-                <div class="bg-emerald-950/80 p-1.5 rounded text-emerald-300">my_print ✅</div>
+              <div class="font-code text-sm space-y-1">
+                <div class="bg-brand-coral-pale p-2 rounded text-brand-coral-dark font-semibold">print ❌</div>
+                <div class="bg-emerald-100 p-2 rounded text-emerald-800 font-semibold">my_print ✅</div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="bg-purple-950 border border-purple-700 p-4 rounded-2xl text-center text-sm md:text-base text-yellow-300">
-          💡 <strong>Snake Case vs Camel Case:</strong> In Python we connect words using underscores like <code class="bg-purple-900 px-2 py-1 rounded text-emerald-300 font-code font-bold">my_score</code> (<strong>snake_case 🐍</strong>). In some other languages programmers write <code class="bg-purple-900 px-2 py-1 rounded text-sky-300 font-code font-bold">myScore</code> with a capital letter (<strong>camelCase 🐪</strong>)!
+        <div class="bg-brand-purple-pale border border-brand-purple-mid/30 p-4 rounded-2xl text-center text-base md:text-lg text-brand-near-black">
+          💡 <strong>Snake Case vs Camel Case:</strong> In Python we connect words using underscores like <code class="bg-white px-2.5 py-1 rounded text-brand-purple font-code font-bold border border-brand-purple-pale">my_score</code> (<strong>snake_case 🐍</strong>). In some languages programmers write <code class="bg-white px-2.5 py-1 rounded text-brand-purple-dark font-code font-bold border border-brand-purple-pale">myScore</code> (<strong>camelCase 🐪</strong>)!
         </div>
       </div>
 
@@ -555,96 +575,80 @@
         <div>
           <div class="flex justify-between items-center mb-3">
             <div>
-              <span class="font-fredoka text-yellow-400 text-xs md:text-sm font-bold uppercase tracking-wider">Activity 2</span>
-              <h2 class="font-fredoka text-2xl md:text-3xl text-white font-bold">Variable Name Detective 🔍</h2>
+              <span class="text-brand-purple font-bold text-sm uppercase tracking-wider">Activity 2</span>
+              <h2 class="text-3xl md:text-4xl text-brand-near-black font-bold">Variable Name Detective 🔍</h2>
             </div>
-            <div class="text-xs bg-yellow-400/20 text-yellow-300 px-3 py-1 rounded-xl border border-yellow-400/40">
+            <div class="text-sm bg-brand-yellow-pale text-brand-near-black px-4 py-2 rounded-xl border border-brand-yellow-dark/30 font-bold">
               Classify all names!
             </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <!-- Allowed Zone -->
-            <div class="bg-emerald-950/40 border-2 border-emerald-500/60 p-3.5 rounded-2xl flex flex-col gap-1.5 min-h-[170px]">
-              <div class="font-fredoka font-bold text-emerald-400 text-sm flex items-center gap-2 mb-1">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>ALLOWED NAMES (Valid)</span>
-              </div>
-              <div id="allowed-names-container" class="flex flex-col gap-1.5 flex-grow"></div>
-            </div>
+          <p class="text-base text-brand-dark-grey mb-3">
+            Click any variable chip below to check if Python allows it!
+          </p>
 
-            <!-- Forbidden Zone -->
-            <div class="bg-red-950/40 border-2 border-red-500/60 p-3.5 rounded-2xl flex flex-col gap-1.5 min-h-[170px]">
-              <div class="font-fredoka font-bold text-red-400 text-sm flex items-center gap-2 mb-1">
-                <i class="fa-solid fa-circle-xmark"></i>
-                <span>FORBIDDEN NAMES (Invalid)</span>
-              </div>
-              <div id="forbidden-names-container" class="flex flex-col gap-1.5 flex-grow"></div>
-            </div>
-          </div>
-
-          <!-- Unassigned Detective Chips -->
-          <div class="mt-3 bg-purple-950 p-2.5 rounded-2xl border border-purple-700 flex flex-wrap gap-2 justify-center" id="unassigned-names-pool">
-            <button onclick="sortDetectiveName(this, 'hero_name', true, 'Valid name!')" class="detective-chip bg-purple-900 hover:bg-purple-800 border border-purple-600 font-code text-xs text-white px-3 py-1 rounded-xl font-bold transition-all">
+          <!-- Detective Chips Pool (Chips do NOT vanish; background turns green or red) -->
+          <div class="bg-brand-purple-ghost p-5 rounded-3xl border-2 border-brand-purple-pale flex flex-wrap gap-3.5 justify-center" id="detective-names-pool">
+            <button onclick="sortDetectiveName(this, 'hero_name', true, 'Valid name!')" class="detective-chip bg-white hover:bg-brand-purple-pale border-2 border-brand-purple-pale font-code text-base md:text-lg text-brand-purple px-5 py-3 rounded-2xl font-bold transition-all shadow-sm">
               hero_name
             </button>
-            <button onclick="sortDetectiveName(this, 'print', false, 'print is a Python command! ❌')" class="detective-chip bg-purple-900 hover:bg-purple-800 border border-purple-600 font-code text-xs text-white px-3 py-1 rounded-xl font-bold transition-all">
+            <button onclick="sortDetectiveName(this, 'print', false, 'print is a Python command! ❌')" class="detective-chip bg-white hover:bg-brand-purple-pale border-2 border-brand-purple-pale font-code text-base md:text-lg text-brand-purple px-5 py-3 rounded-2xl font-bold transition-all shadow-sm">
               print
             </button>
-            <button onclick="sortDetectiveName(this, '2026_score', false, 'Starts with a number! ❌')" class="detective-chip bg-purple-900 hover:bg-purple-800 border border-purple-600 font-code text-xs text-white px-3 py-1 rounded-xl font-bold transition-all">
+            <button onclick="sortDetectiveName(this, '2026_score', false, 'Starts with a number! ❌')" class="detective-chip bg-white hover:bg-brand-purple-pale border-2 border-brand-purple-pale font-code text-base md:text-lg text-brand-purple px-5 py-3 rounded-2xl font-bold transition-all shadow-sm">
               2026_score
             </button>
-            <button onclick="sortDetectiveName(this, 'hero name', false, 'Contains a space! ❌')" class="detective-chip bg-purple-900 hover:bg-purple-800 border border-purple-600 font-code text-xs text-white px-3 py-1 rounded-xl font-bold transition-all">
+            <button onclick="sortDetectiveName(this, 'hero name', false, 'Contains a space! ❌')" class="detective-chip bg-white hover:bg-brand-purple-pale border-2 border-brand-purple-pale font-code text-base md:text-lg text-brand-purple px-5 py-3 rounded-2xl font-bold transition-all shadow-sm">
               hero name
             </button>
-            <button onclick="sortDetectiveName(this, 'total_coins', true, 'Valid name!')" class="detective-chip bg-purple-900 hover:bg-purple-800 border border-purple-600 font-code text-xs text-white px-3 py-1 rounded-xl font-bold transition-all">
+            <button onclick="sortDetectiveName(this, 'total_coins', true, 'Valid name!')" class="detective-chip bg-white hover:bg-brand-purple-pale border-2 border-brand-purple-pale font-code text-base md:text-lg text-brand-purple px-5 py-3 rounded-2xl font-bold transition-all shadow-sm">
               total_coins
             </button>
-            <button onclick="sortDetectiveName(this, 'coins#', false, 'Contains # symbol! ❌')" class="detective-chip bg-purple-900 hover:bg-purple-800 border border-purple-600 font-code text-xs text-white px-3 py-1 rounded-xl font-bold transition-all">
+            <button onclick="sortDetectiveName(this, 'coins#', false, 'Contains # symbol! ❌')" class="detective-chip bg-white hover:bg-brand-purple-pale border-2 border-brand-purple-pale font-code text-base md:text-lg text-brand-purple px-5 py-3 rounded-2xl font-bold transition-all shadow-sm">
               coins#
             </button>
-            <button onclick="sortDetectiveName(this, 'score_2026', true, 'Numbers at the END are fine!')" class="detective-chip bg-purple-900 hover:bg-purple-800 border border-purple-600 font-code text-xs text-white px-3 py-1 rounded-xl font-bold transition-all">
+            <button onclick="sortDetectiveName(this, 'score_2026', true, 'Numbers at the END are fine!')" class="detective-chip bg-white hover:bg-brand-purple-pale border-2 border-brand-purple-pale font-code text-base md:text-lg text-brand-purple px-5 py-3 rounded-2xl font-bold transition-all shadow-sm">
               score_2026
             </button>
           </div>
         </div>
 
-        <div id="detective-feedback" class="text-xs text-center text-yellow-300 font-semibold min-h-[20px]">
-          Tap any variable chip above to check if Python allows it!
+        <div id="detective-feedback" class="p-4 bg-brand-purple-pale border border-brand-purple-mid/30 rounded-2xl text-base md:text-lg text-center text-brand-purple font-bold min-h-[56px] flex items-center justify-center">
+          Tap any variable chip above to test if it's allowed!
         </div>
       </div>
 
       <div class="slide-panel flex-col h-full justify-between" id="slide-9">
         <div>
           <div class="mb-3">
-            <span class="font-fredoka text-yellow-400 text-xs md:text-sm font-bold uppercase tracking-wider">Activity 3</span>
-            <h2 class="font-fredoka text-2xl md:text-3xl text-white font-bold">Storing Number of Oranges 🍊</h2>
+            <span class="text-brand-purple font-bold text-sm uppercase tracking-wider">Activity 3</span>
+            <h2 class="text-3xl md:text-4xl text-brand-near-black font-bold">Storing Number of Oranges 🍊</h2>
           </div>
 
-          <p class="text-xs md:text-sm text-purple-200 mb-3">
+          <p class="text-base md:text-lg text-brand-dark-grey mb-4">
             <strong>Question:</strong> You harvested 12 oranges! Which variable name is the <strong>BEST</strong> choice?
           </p>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <button onclick="checkOrangeChoice(this, false, 'Too mysterious! X does not explain what is inside the variable! ❓')" class="orange-option bg-purple-950/80 hover:bg-purple-800 border-2 border-purple-700 p-4 rounded-2xl flex items-center justify-between transition-all">
-              <span class="font-code text-white font-bold text-lg">x = 12</span>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <button onclick="checkOrangeChoice(this, false, 'Too mysterious! X does not explain what is inside the variable! ❓')" class="orange-option bg-brand-purple-ghost hover:bg-brand-purple-pale border-2 border-brand-purple-pale p-5 rounded-2xl flex items-center justify-between transition-all">
+              <span class="font-code text-brand-near-black font-bold text-xl">x = 12</span>
             </button>
 
-            <button onclick="checkOrangeChoice(this, true, 'PERFECT! ⭐ Clear, describes oranges, and uses snake_case!')" class="orange-option bg-purple-950/80 hover:bg-purple-800 border-2 border-purple-700 p-4 rounded-2xl flex items-center justify-between transition-all">
-              <span class="font-code text-white font-bold text-lg">num_oranges = 12</span>
+            <button onclick="checkOrangeChoice(this, true, 'PERFECT! ⭐ Clear, describes oranges, and uses snake_case!')" class="orange-option bg-brand-purple-ghost hover:bg-brand-purple-pale border-2 border-brand-purple-pale p-5 rounded-2xl flex items-center justify-between transition-all">
+              <span class="font-code text-brand-near-black font-bold text-xl">num_oranges = 12</span>
             </button>
 
-            <button onclick="checkOrangeChoice(this, false, 'Too loud! Capital N is tricky and not standard Python snake_case! 📢')" class="orange-option bg-purple-950/80 hover:bg-purple-800 border-2 border-purple-700 p-4 rounded-2xl flex items-center justify-between transition-all">
-              <span class="font-code text-white font-bold text-lg">orange_Num = 12</span>
+            <button onclick="checkOrangeChoice(this, false, 'Too loud! Capital N is tricky and not standard Python snake_case! 📢')" class="orange-option bg-brand-purple-ghost hover:bg-brand-purple-pale border-2 border-brand-purple-pale p-5 rounded-2xl flex items-center justify-between transition-all">
+              <span class="font-code text-brand-near-black font-bold text-xl">orange_Num = 12</span>
             </button>
 
-            <button onclick="checkOrangeChoice(this, false, 'Error! Variable names cannot contain spaces! ❌')" class="orange-option bg-purple-950/80 hover:bg-purple-800 border-2 border-purple-700 p-4 rounded-2xl flex items-center justify-between transition-all">
-              <span class="font-code text-white font-bold text-lg">orange num = 12</span>
+            <button onclick="checkOrangeChoice(this, false, 'Error! Variable names cannot contain spaces! ❌')" class="orange-option bg-brand-purple-ghost hover:bg-brand-purple-pale border-2 border-brand-purple-pale p-5 rounded-2xl flex items-center justify-between transition-all">
+              <span class="font-code text-brand-near-black font-bold text-xl">orange num = 12</span>
             </button>
           </div>
         </div>
 
-        <div id="orange-feedback" class="p-3 bg-purple-950 border border-purple-700 rounded-2xl text-xs md:text-sm text-yellow-300 text-center font-semibold">
+        <div id="orange-feedback" class="p-4 bg-brand-purple-pale border border-brand-purple-mid/30 rounded-2xl text-base md:text-lg text-brand-near-black text-center font-bold">
           Golden Tip: Pick variable names that make sense to anyone reading your code!
         </div>
       </div>
@@ -653,69 +657,69 @@
         <div>
           <div class="mb-3 flex justify-between items-center">
             <div>
-              <h2 class="font-fredoka text-2xl md:text-3xl text-white font-bold">Build Your First Python Code! 💻</h2>
+              <h2 class="text-3xl md:text-4xl text-brand-near-black font-bold">Build Your First Python Code! 💻</h2>
             </div>
-            <div class="bg-yellow-400 text-purple-950 px-3 py-1 rounded-xl text-xs font-bold flex items-center gap-1.5">
-              <i class="fa-solid fa-play"></i> Try It Yourself!
+            <div class="bg-brand-yellow text-brand-near-black px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 shadow-sm">
+              <i class="fa-solid fa-play text-base"></i> Try It Yourself!
             </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-stretch">
             <!-- Code Editor Box Left -->
-            <div class="md:col-span-7 bg-slate-900 border-2 border-purple-600 rounded-2xl p-4 flex flex-col justify-between font-code shadow-xl">
+            <div class="md:col-span-7 bg-slate-900 border-2 border-slate-700 rounded-2xl p-5 flex flex-col justify-between font-code shadow-md">
               <div>
                 <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-700 text-xs text-slate-400">
-                  <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                  <div class="w-3.5 h-3.5 rounded-full bg-red-500"></div>
+                  <div class="w-3.5 h-3.5 rounded-full bg-yellow-500"></div>
+                  <div class="w-3.5 h-3.5 rounded-full bg-green-500"></div>
                   <span class="ml-2 font-bold text-slate-300">my_first_code.py</span>
                 </div>
 
-                <div class="space-y-2 text-sm">
+                <div class="space-y-3 text-lg md:text-xl">
                   <!-- Code Line 1 -->
-                  <div class="flex items-center gap-2">
+                  <div class="flex items-center gap-2.5">
                     <span class="text-slate-500 select-none">1</span>
-                    <span class="text-purple-400 font-bold">name</span>
+                    <span class="text-brand-cyan font-bold">name</span>
                     <span class="text-white">=</span>
-                    <span id="code-variable-val" class="bg-purple-950 text-emerald-400 border border-purple-700 px-2 py-0.5 rounded font-bold">"Alex"</span>
+                    <span id="code-variable-val" class="bg-slate-800 text-emerald-400 border border-slate-600 px-3 py-1 rounded font-bold">"Alex"</span>
                   </div>
 
                   <!-- Code Line 2 -->
-                  <div class="flex items-center gap-2">
+                  <div class="flex items-center gap-2.5">
                     <span class="text-slate-500 select-none">2</span>
-                    <span id="code-line-2" class="text-slate-400 italic">[ Tap '+ Add print' below ]</span>
+                    <span id="code-line-2" class="text-slate-400 italic text-base">[ Tap '+ Add print' below ]</span>
                   </div>
                 </div>
               </div>
 
               <!-- Interactive Action Button -->
-              <div class="mt-4 pt-3 border-t border-slate-800 flex justify-start">
-                <button onclick="addPrintCommand()" class="bg-amber-500 hover:bg-amber-400 text-purple-950 text-xs px-4 py-2 rounded-xl font-sans font-bold transition-all shadow-md">
+              <div class="mt-5 pt-3 border-t border-slate-800 flex justify-start">
+                <button onclick="addPrintCommand()" class="bg-brand-yellow hover:bg-brand-yellow-dark text-brand-near-black text-base px-5 py-2.5 rounded-xl font-sans font-extrabold transition-all shadow">
                   + Add print(name)
                 </button>
               </div>
             </div>
 
             <!-- Terminal Output Right -->
-            <div class="md:col-span-5 bg-black border-2 border-slate-800 rounded-2xl p-4 flex flex-col justify-between font-code shadow-xl">
+            <div class="md:col-span-5 bg-black border-2 border-slate-800 rounded-2xl p-5 flex flex-col justify-between font-code shadow-md">
               <div>
-                <div class="text-xs text-emerald-400 font-bold mb-2 flex items-center gap-2">
-                  <i class="fa-solid fa-terminal"></i> Python Output Screen
+                <div class="text-sm text-emerald-400 font-bold mb-2 flex items-center gap-2">
+                  <i class="fa-solid fa-terminal text-base"></i> Python Output Screen
                 </div>
-                <div id="terminal-output" class="text-sm text-slate-400 italic pt-2">
-                  Click 'Run Code ▶' to see what prints on screen!
+                <div id="terminal-output" class="text-lg text-slate-400 italic pt-2">
+                  Click 'Run Code ▶' to see output!
                 </div>
               </div>
 
-              <button onclick="runPythonSim()" class="mt-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-sans font-bold text-sm py-2.5 rounded-xl shadow-lg transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2">
-                <i class="fa-solid fa-play text-xs"></i>
+              <button onclick="runPythonSim()" class="mt-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-sans font-extrabold text-lg py-3 rounded-xl shadow transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-play text-sm"></i>
                 <span>Run Code ▶</span>
               </button>
             </div>
           </div>
         </div>
 
-        <div class="bg-purple-950 border border-purple-700 p-2.5 rounded-2xl text-center text-xs text-yellow-300 font-semibold">
+        <div class="bg-brand-purple-pale border border-brand-purple-mid/30 p-3.5 rounded-2xl text-center text-sm md:text-base text-brand-purple font-bold">
           🎉 This is exactly what you will do in your real coding class today!
         </div>
       </div>
@@ -723,48 +727,48 @@
       <div class="slide-panel flex-col h-full justify-between" id="slide-11">
         <div>
           <div class="mb-3 text-center">
-            <span class="bg-yellow-400 text-purple-950 px-4 py-1 rounded-full font-fredoka text-xs font-extrabold uppercase tracking-widest inline-block mb-1">
+            <span class="bg-brand-yellow text-brand-near-black px-5 py-1.5 rounded-full font-extrabold text-xs md:text-sm uppercase tracking-widest inline-block mb-1">
               Coding Challenge
             </span>
-            <h2 class="font-fredoka text-3xl md:text-4xl text-yellow-300 font-bold">Let's Get Ready for Class!</h2>
-            <p class="text-xs md:text-sm text-purple-200 mt-1">In class, you will create code to store your <strong>Name</strong>, <strong>Class Grade</strong>, and <strong>Favorite Food</strong>!</p>
+            <h2 class="text-3xl md:text-5xl text-brand-purple font-extrabold">Let's Get Ready for Class!</h2>
+            <p class="text-base md:text-lg text-brand-dark-grey mt-1">In class, you will create code to store your <strong>Name</strong>, <strong>Class Grade</strong>, and <strong>Favorite Food</strong>!</p>
           </div>
 
           <!-- Brainstorming Quiz Questions -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4.5">
             <!-- Question 1 -->
-            <div class="bg-purple-950/80 border border-purple-700 p-3.5 rounded-2xl flex flex-col justify-between">
+            <div class="bg-brand-purple-ghost border-2 border-brand-purple-pale p-5 rounded-2xl flex flex-col justify-between">
               <div>
-                <div class="text-xs font-bold text-yellow-300 uppercase tracking-wider mb-1">BRAINSTORMING #1</div>
-                <h3 class="font-fredoka text-sm text-white font-bold mb-2">How many variables do you need to create?</h3>
+                <div class="text-xs font-bold text-brand-purple uppercase tracking-wider mb-1">BRAINSTORMING #1</div>
+                <h3 class="text-lg text-brand-near-black font-bold mb-3">How many variables do you need to create?</h3>
               </div>
-              <div class="grid grid-cols-2 gap-2">
-                <button onclick="checkBrainstorm1(this, false)" class="bs1-opt bg-purple-900 hover:bg-purple-800 border border-purple-600 text-xs text-white p-2 rounded-xl font-bold transition-all">1 Variable</button>
-                <button onclick="checkBrainstorm1(this, false)" class="bs1-opt bg-purple-900 hover:bg-purple-800 border border-purple-600 text-xs text-white p-2 rounded-xl font-bold transition-all">2 Variables</button>
-                <button onclick="checkBrainstorm1(this, true)" class="bs1-opt bg-purple-900 hover:bg-purple-800 border border-purple-600 text-xs text-white p-2 rounded-xl font-bold transition-all">3 Variables</button>
-                <button onclick="checkBrainstorm1(this, false)" class="bs1-opt bg-purple-900 hover:bg-purple-800 border border-purple-600 text-xs text-white p-2 rounded-xl font-bold transition-all">5 Variables</button>
+              <div class="grid grid-cols-2 gap-3">
+                <button onclick="checkBrainstorm1(this, false)" class="bs1-opt bg-white hover:bg-brand-purple-pale border-2 border-brand-purple-pale text-base text-brand-near-black p-3.5 rounded-2xl font-bold transition-all shadow-sm">1 Variable</button>
+                <button onclick="checkBrainstorm1(this, false)" class="bs1-opt bg-white hover:bg-brand-purple-pale border-2 border-brand-purple-pale text-base text-brand-near-black p-3.5 rounded-2xl font-bold transition-all shadow-sm">2 Variables</button>
+                <button onclick="checkBrainstorm1(this, true)" class="bs1-opt bg-white hover:bg-brand-purple-pale border-2 border-brand-purple-pale text-base text-brand-near-black p-3.5 rounded-2xl font-bold transition-all shadow-sm">3 Variables</button>
+                <button onclick="checkBrainstorm1(this, false)" class="bs1-opt bg-white hover:bg-brand-purple-pale border-2 border-brand-purple-pale text-base text-brand-near-black p-3.5 rounded-2xl font-bold transition-all shadow-sm">5 Variables</button>
               </div>
             </div>
 
             <!-- Question 2 -->
-            <div class="bg-purple-950/80 border border-purple-700 p-3.5 rounded-2xl flex flex-col justify-between">
+            <div class="bg-brand-purple-ghost border-2 border-brand-purple-pale p-5 rounded-2xl flex flex-col justify-between">
               <div>
-                <div class="text-xs font-bold text-yellow-300 uppercase tracking-wider mb-1">BRAINSTORMING #2</div>
-                <h3 class="font-fredoka text-sm text-white font-bold mb-2">What data types are used for Name, Grade (e.g., 5), and Food?</h3>
+                <div class="text-xs font-bold text-brand-purple uppercase tracking-wider mb-1">BRAINSTORMING #2</div>
+                <h3 class="text-lg text-brand-near-black font-bold mb-3">What data types are used for Name, Grade (e.g. 5), and Food?</h3>
               </div>
-              <div class="flex flex-col gap-1.5">
-                <button onclick="checkBrainstorm2(this, false)" class="bs2-opt bg-purple-900 hover:bg-purple-800 border border-purple-600 text-xs text-white p-2 rounded-xl font-bold text-left transition-all">A) 3 Floats</button>
-                <button onclick="checkBrainstorm2(this, true)" class="bs2-opt bg-purple-900 hover:bg-purple-800 border border-purple-600 text-xs text-white p-2 rounded-xl font-bold text-left transition-all">B) 1 Integer, 2 Strings</button>
-                <button onclick="checkBrainstorm2(this, false)" class="bs2-opt bg-purple-900 hover:bg-purple-800 border border-purple-600 text-xs text-white p-2 rounded-xl font-bold text-left transition-all">C) 3 Booleans</button>
+              <div class="flex flex-col gap-2.5">
+                <button onclick="checkBrainstorm2(this, false)" class="bs2-opt bg-white hover:bg-brand-purple-pale border-2 border-brand-purple-pale text-base text-brand-near-black p-3 rounded-2xl font-bold text-left transition-all shadow-sm">A) 3 Floats</button>
+                <button onclick="checkBrainstorm2(this, true)" class="bs2-opt bg-white hover:bg-brand-purple-pale border-2 border-brand-purple-pale text-base text-brand-near-black p-3 rounded-2xl font-bold text-left transition-all shadow-sm">B) 1 Integer, 2 Strings</button>
+                <button onclick="checkBrainstorm2(this, false)" class="bs2-opt bg-white hover:bg-brand-purple-pale border-2 border-brand-purple-pale text-base text-brand-near-black p-3 rounded-2xl font-bold text-left transition-all shadow-sm">C) 3 Booleans</button>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Completion Cheer Banner -->
-        <div id="ready-coding-banner" class="bg-yellow-400 text-purple-950 p-3.5 rounded-2xl text-center shadow-lg flex items-center justify-between px-6 transition-all">
-          <span class="font-fredoka font-bold text-base md:text-lg" id="ready-banner-text">Answer both brainstorming questions above!</span>
-          <button onclick="triggerConfetti()" class="bg-purple-950 hover:bg-purple-900 text-yellow-300 font-fredoka px-4 py-1.5 rounded-xl text-sm font-bold shadow transition-all">
+        <!-- Completion Banner -->
+        <div id="ready-coding-banner" class="bg-brand-yellow text-brand-near-black p-4.5 rounded-2xl shadow-md flex flex-wrap items-center justify-between gap-3 px-6 transition-all">
+          <span class="font-extrabold text-base md:text-xl" id="ready-banner-text">Answer both brainstorming questions above!</span>
+          <button onclick="triggerConfetti()" class="bg-brand-purple hover:bg-brand-purple-dark text-white px-6 py-2.5 rounded-xl text-base font-extrabold shadow transition-all">
             All the best for starting with coding! 🚀
           </button>
         </div>
@@ -773,17 +777,17 @@
     </div>
   </main>
 
-  <footer class="w-full max-w-6xl mx-auto mt-3 flex items-center justify-between gap-4">
-    <button id="prev-btn" onclick="prevSlide()" class="bg-purple-950 hover:bg-purple-900 border border-purple-700 text-white font-fredoka px-5 py-2.5 rounded-2xl font-bold flex items-center gap-2 transition-all disabled:opacity-40 disabled:cursor-not-allowed">
+  <footer class="w-full max-w-6xl mx-auto mt-4 flex items-center justify-between gap-4">
+    <button id="prev-btn" onclick="prevSlide()" class="bg-white hover:bg-brand-purple-pale border-2 border-brand-purple-pale text-brand-purple px-7 py-3.5 rounded-2xl font-extrabold text-lg flex items-center gap-2.5 transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-sm">
       <i class="fa-solid fa-arrow-left"></i>
       <span>Previous</span>
     </button>
 
-    <div class="hidden md:flex items-center gap-2 text-xs text-purple-300 font-semibold">
+    <div class="hidden md:flex items-center gap-2 text-base text-brand-dark-grey font-semibold">
       <span>Use Arrow Keys ⬅️ ➡️ to change slides</span>
     </div>
 
-    <button id="next-btn" onclick="nextSlide()" class="bg-yellow-400 hover:bg-yellow-300 text-purple-950 font-fredoka px-5 py-2.5 rounded-2xl font-bold flex items-center gap-2 shadow-lg transition-all">
+    <button id="next-btn" onclick="nextSlide()" class="bg-brand-yellow hover:bg-brand-yellow-dark text-brand-near-black px-7 py-3.5 rounded-2xl font-extrabold text-lg flex items-center gap-2.5 shadow-md transition-all">
       <span>Next</span>
       <i class="fa-solid fa-arrow-right"></i>
     </button>
@@ -843,7 +847,7 @@
     function toggleSound() {
       soundEnabled = !soundEnabled;
       const icon = document.getElementById('sound-icon');
-      icon.className = soundEnabled ? 'fa-solid fa-volume-high' : 'fa-solid fa-volume-xmark';
+      icon.className = soundEnabled ? 'fa-solid fa-volume-high text-xl' : 'fa-solid fa-volume-xmark text-xl';
     }
 
     function initDots() {
@@ -851,7 +855,7 @@
       dotsContainer.innerHTML = '';
       for (let i = 1; i <= totalSlides; i++) {
         const dot = document.createElement('button');
-        dot.className = `w-2.5 h-2.5 rounded-full transition-all ${i === 1 ? 'bg-yellow-400 w-5' : 'bg-purple-800 hover:bg-purple-700'}`;
+        dot.className = `w-3 h-3 rounded-full transition-all ${i === 1 ? 'bg-brand-purple w-7' : 'bg-brand-purple-pale hover:bg-brand-purple-mid'}`;
         dot.onclick = () => goToSlide(i);
         dot.title = `Slide ${i}`;
         dot.id = `dot-${i}`;
@@ -873,7 +877,7 @@
       for (let i = 1; i <= totalSlides; i++) {
         const dot = document.getElementById(`dot-${i}`);
         if (dot) {
-          dot.className = (i === currentSlide) ? 'w-5 h-2.5 rounded-full bg-yellow-400 transition-all' : 'w-2.5 h-2.5 rounded-full bg-purple-800 hover:bg-purple-700 transition-all';
+          dot.className = (i === currentSlide) ? 'w-7 h-3 rounded-full bg-brand-purple transition-all' : 'w-3 h-3 rounded-full bg-brand-purple-pale hover:bg-brand-purple-mid transition-all';
         }
       }
 
@@ -912,7 +916,7 @@
     /* Slide 2 Quiz */
     function checkGlassQuiz(btn, isCorrect, feedbackMessage) {
       document.querySelectorAll('#slide-2 .quiz-option').forEach(opt => {
-        opt.classList.remove('border-green-500', 'bg-green-950/60', 'border-red-500', 'bg-red-950/60');
+        opt.classList.remove('border-emerald-500', 'bg-emerald-50', 'border-brand-coral', 'bg-brand-coral-pale');
       });
 
       const feedback = document.getElementById('glass-quiz-feedback');
@@ -920,15 +924,15 @@
 
       if (isCorrect) {
         playSound('correct');
-        btn.classList.add('border-green-500', 'bg-green-950/80');
-        feedback.className = "mt-3 p-3 rounded-2xl bg-emerald-950 border border-emerald-500 text-center font-bold text-sm text-emerald-300";
-        feedback.innerHTML = `<i class="fa-solid fa-circle-check text-base mr-2"></i> ${feedbackMessage}`;
+        btn.classList.add('border-emerald-500', 'bg-emerald-50');
+        feedback.className = "mt-3 p-4 rounded-2xl bg-emerald-50 border border-emerald-300 text-center font-bold text-lg text-emerald-900";
+        feedback.innerHTML = `<i class="fa-solid fa-circle-check text-lg mr-2 text-emerald-600"></i> ${feedbackMessage}`;
       } else {
         playSound('wrong');
-        btn.classList.add('border-red-500', 'bg-red-950/80', 'animate-shake');
+        btn.classList.add('border-brand-coral', 'bg-brand-coral-pale', 'animate-shake');
         setTimeout(() => btn.classList.remove('animate-shake'), 400);
-        feedback.className = "mt-3 p-3 rounded-2xl bg-red-950 border border-red-500 text-center font-bold text-sm text-red-300";
-        feedback.innerHTML = `<i class="fa-solid fa-circle-xmark text-base mr-2"></i> ${feedbackMessage}`;
+        feedback.className = "mt-3 p-4 rounded-2xl bg-brand-coral-pale border border-brand-coral/40 text-center font-bold text-lg text-brand-coral-dark";
+        feedback.innerHTML = `<i class="fa-solid fa-circle-xmark text-lg mr-2 text-brand-coral"></i> ${feedbackMessage}`;
       }
     }
 
@@ -943,7 +947,7 @@
       liquid.style.backgroundColor = colorHex;
 
       varDisplay.innerText = `"${codeValue}"`;
-      varDisplay.className = "text-yellow-300 font-bold";
+      varDisplay.className = "text-brand-purple font-bold";
 
       desc.innerHTML = `Variable <strong>glass</strong> now stores <strong>"${codeValue}"</strong>!`;
     }
@@ -983,27 +987,27 @@
 
       if (isReal) {
         playSound('correct');
-        btn.classList.add('border-emerald-500', 'bg-emerald-950/80');
-        icon.className = 'fa-solid fa-circle-check text-emerald-400 text-lg';
+        btn.classList.add('border-emerald-500', 'bg-emerald-50');
+        icon.className = 'fa-solid fa-circle-check text-emerald-600 text-2xl';
         
         foundTypesSet.add(name);
         foundTypesCount = foundTypesSet.size;
         document.getElementById('found-types-count').innerText = foundTypesCount;
 
-        feedback.className = "mt-2 p-2.5 rounded-2xl bg-emerald-950 border border-emerald-500 text-center font-bold text-xs md:text-sm text-emerald-300 flex items-center justify-center gap-2 min-h-[44px]";
-        feedback.innerHTML = `<i class="fa-solid fa-circle-check"></i> YES! <strong>${name}</strong> is a real Python data type. ${explanation}`;
+        feedback.className = "mt-4 p-4 rounded-2xl bg-emerald-50 border border-emerald-300 text-center font-bold text-base md:text-lg text-emerald-900 flex items-center justify-center gap-2 min-h-[52px]";
+        feedback.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600"></i> YES! <strong>${name}</strong> is a real Python data type. ${explanation}`;
 
         if (foundTypesCount === 3) {
           triggerConfetti();
         }
       } else {
         playSound('wrong');
-        btn.classList.add('border-red-500', 'bg-red-950/80', 'animate-shake');
+        btn.classList.add('border-brand-coral', 'bg-brand-coral-pale', 'animate-shake');
         setTimeout(() => btn.classList.remove('animate-shake'), 400);
-        icon.className = 'fa-solid fa-circle-xmark text-red-400 text-lg';
+        icon.className = 'fa-solid fa-circle-xmark text-brand-coral text-2xl';
 
-        feedback.className = "mt-2 p-2.5 rounded-2xl bg-red-950 border border-red-500 text-center font-bold text-xs md:text-sm text-red-300 flex items-center justify-center gap-2 min-h-[44px]";
-        feedback.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> ${explanation}`;
+        feedback.className = "mt-4 p-4 rounded-2xl bg-brand-coral-pale border border-brand-coral/40 text-center font-bold text-base md:text-lg text-brand-coral-dark flex items-center justify-center gap-2 min-h-[52px]";
+        feedback.innerHTML = `<i class="fa-solid fa-circle-xmark text-brand-coral"></i> ${explanation}`;
       }
     }
 
@@ -1017,10 +1021,10 @@
       const val = boolState[varName];
 
       if (val) {
-        btn.className = "bg-green-500 hover:bg-green-600 text-white font-fredoka font-bold px-4 py-1.5 rounded-xl shadow-md transition-all flex items-center gap-2";
+        btn.className = "bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-base px-5 py-2.5 rounded-xl shadow transition-all flex items-center gap-2";
         btn.innerHTML = `<span>TRUE</span> 🟢`;
       } else {
-        btn.className = "bg-red-500 hover:bg-red-600 text-white font-fredoka font-bold px-4 py-1.5 rounded-xl shadow-md transition-all flex items-center gap-2";
+        btn.className = "bg-brand-coral hover:bg-brand-coral-dark text-white font-bold text-base px-5 py-2.5 rounded-xl shadow transition-all flex items-center gap-2";
         btn.innerHTML = `<span>FALSE</span> 🔴`;
       }
 
@@ -1028,79 +1032,127 @@
         const bulbIcon = document.getElementById('bulb-icon');
         const bulbText = document.getElementById('bulb-bool-text');
         if (val) {
-          bulbIcon.className = 'fa-solid fa-lightbulb text-3xl text-yellow-400 drop-shadow-[0_0_15px_rgba(250,204,21,0.8)]';
+          bulbIcon.className = 'fa-solid fa-lightbulb text-4xl text-brand-yellow-dark drop-shadow-[0_0_12px_rgba(230,184,74,0.8)]';
           bulbText.innerText = 'True';
-          bulbText.className = 'text-[10px] text-green-400 font-bold';
+          bulbText.className = 'text-sm text-emerald-600 font-bold';
         } else {
-          bulbIcon.className = 'fa-solid fa-lightbulb text-3xl text-slate-600';
+          bulbIcon.className = 'fa-solid fa-lightbulb text-4xl text-slate-400';
           bulbText.innerText = 'False';
-          bulbText.className = 'text-[10px] text-red-400 font-bold';
+          bulbText.className = 'text-sm text-brand-coral font-bold';
         }
       } else if (varName === 'has_magic_power') {
         const magicIcon = document.getElementById('magic-icon');
         const magicText = document.getElementById('magic-bool-text');
         const magicCard = document.getElementById('magic-display-card');
         if (val) {
-          magicIcon.className = 'fa-solid fa-wand-magic-sparkles text-3xl text-yellow-400 drop-shadow-[0_0_15px_rgba(250,204,21,0.8)]';
+          magicIcon.className = 'fa-solid fa-wand-magic-sparkles text-4xl text-brand-yellow-dark drop-shadow-[0_0_12px_rgba(230,184,74,0.8)]';
           magicText.innerText = 'True';
-          magicText.className = 'text-[10px] text-green-400 font-bold';
-          magicCard.className = 'bg-purple-950 border-2 border-purple-700 p-2.5 rounded-2xl flex flex-col items-center text-center';
+          magicText.className = 'text-sm text-emerald-600 font-bold';
+          magicCard.className = 'bg-brand-purple-ghost border-2 border-brand-purple-pale p-3.5 rounded-2xl flex flex-col items-center text-center';
         } else {
-          magicIcon.className = 'fa-solid fa-wand-magic-sparkles text-3xl text-slate-600';
+          magicIcon.className = 'fa-solid fa-wand-magic-sparkles text-4xl text-slate-400';
           magicText.innerText = 'False';
-          magicText.className = 'text-[10px] text-red-400 font-bold';
-          magicCard.className = 'bg-red-950/60 border-2 border-red-500 p-2.5 rounded-2xl flex flex-col items-center text-center';
+          magicText.className = 'text-sm text-brand-coral font-bold';
+          magicCard.className = 'bg-brand-coral-pale border-2 border-brand-coral/40 p-3.5 rounded-2xl flex flex-col items-center text-center';
         }
       } else if (varName === 'is_game_over') {
         const goIcon = document.getElementById('gameover-icon');
         const goText = document.getElementById('gameover-bool-text');
         const goCard = document.getElementById('gameover-display-card');
         if (val) {
-          goIcon.className = 'fa-solid fa-gamepad text-3xl text-red-400';
+          goIcon.className = 'fa-solid fa-gamepad text-4xl text-brand-coral';
           goText.innerText = 'True';
-          goText.className = 'text-[10px] text-red-400 font-bold';
-          goCard.className = 'bg-red-950/60 border-2 border-red-500 p-2.5 rounded-2xl flex flex-col items-center text-center';
+          goText.className = 'text-sm text-brand-coral font-bold';
+          goCard.className = 'bg-brand-coral-pale border-2 border-brand-coral/40 p-3.5 rounded-2xl flex flex-col items-center text-center';
         } else {
-          goIcon.className = 'fa-solid fa-gamepad text-3xl text-emerald-400';
+          goIcon.className = 'fa-solid fa-gamepad text-4xl text-emerald-500';
           goText.innerText = 'False';
-          goText.className = 'text-[10px] text-green-400 font-bold';
-          goCard.className = 'bg-purple-950 border-2 border-purple-700 p-2.5 rounded-2xl flex flex-col items-center text-center';
+          goText.className = 'text-sm text-emerald-600 font-bold';
+          goCard.className = 'bg-brand-purple-ghost border-2 border-brand-purple-pale p-3.5 rounded-2xl flex flex-col items-center text-center';
         }
       }
     }
 
-    /* Slide 8 Detective Chip Sorting */
+    /* Slide 8 Detective Chip Sorting (NO VANISHING: Chip background turns green or red) */
     let validNamesCount = 0;
+    const evaluatedChips = new Set();
 
-    function sortDetectiveName(chip, nameStr, isValid, explanation) {
+    function sortDetectiveName(chipBtn, nameStr, isValid, explanation) {
       const feedback = document.getElementById('detective-feedback');
 
       if (isValid) {
         playSound('correct');
-        chip.remove();
-        const allowedBox = document.getElementById('allowed-names-container');
-        const item = document.createElement('div');
-        item.className = 'bg-emerald-900/80 border border-emerald-500 text-emerald-200 font-code text-xs px-2.5 py-1.5 rounded-xl font-bold flex justify-between items-center';
-        item.innerHTML = `<span>${nameStr}</span> <i class="fa-solid fa-check text-emerald-400"></i>`;
-        allowedBox.appendChild(item);
+        // Do NOT remove the chip! Change background color to emerald green.
+        chipBtn.className = "detective-chip bg-emerald-500 border-2 border-emerald-600 font-code text-base md:text-lg text-white px-5 py-3 rounded-2xl font-extrabold transition-all shadow-md flex items-center gap-2";
+        chipBtn.innerHTML = `<span>${nameStr}</span> <i class="fa-solid fa-circle-check text-white"></i>`;
 
-        validNamesCount++;
-        feedback.innerHTML = `<span class="text-emerald-400 font-bold">ALLOWED!</span> ${nameStr}: ${explanation}`;
+        if (!evaluatedChips.has(nameStr)) {
+          evaluatedChips.add(nameStr);
+          validNamesCount++;
+        }
+
+        feedback.className = "p-4 bg-emerald-50 border border-emerald-300 rounded-2xl text-base md:text-lg text-center text-emerald-900 font-bold min-h-[56px] flex items-center justify-center";
+        feedback.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600 mr-2"></i> <strong>ALLOWED!</strong> '${nameStr}' is a valid Python variable name!`;
 
         if (validNamesCount === 3) {
           triggerConfetti();
-          feedback.innerHTML = `<span class="text-emerald-400 font-bold text-sm">🎉 GREAT JOB! You found all valid names!</span>`;
+          feedback.innerHTML = `<span class="text-emerald-800 font-extrabold text-xl">🎉 EXCELLENT DETECTIVE WORK! You found all valid names!</span>`;
         }
       } else {
         playSound('wrong');
-        chip.remove();
-        const forbiddenBox = document.getElementById('forbidden-names-container');
-        const item = document.createElement('div');
-        item.className = 'bg-red-900/80 border border-red-500 text-red-200 font-code text-xs px-2.5 py-1.5 rounded-xl font-bold flex justify-between items-center';
-        item.innerHTML = `<span>${nameStr}</span> <i class="fa-solid fa-xmark text-red-400"></i>`;
-        forbiddenBox.appendChild(item);
+        // Do NOT remove the chip! Change background color to coral red.
+        chipBtn.className = "detective-chip bg-brand-coral border-2 border-brand-coral-dark font-code text-base md:text-lg text-white px-5 py-3 rounded-2xl font-extrabold transition-all shadow-md flex items-center gap-2 animate-shake";
+        setTimeout(() => chipBtn.classList.remove('animate-shake'), 400);
+        chipBtn.innerHTML = `<span>${nameStr}</span> <i class="fa-solid fa-circle-xmark text-white"></i>`;
 
-        feedback.innerHTML = `<span class="text-red-400 font-bold">FORBIDDEN!</span> ${nameStr}: ${explanation}`;
+        feedback.className = "p-4 bg-brand-coral-pale border border-brand-coral/40 rounded-2xl text-base md:text-lg text-center text-brand-coral-dark font-bold min-h-[56px] flex items-center justify-center";
+        feedback.innerHTML = `<i class="fa-solid fa-circle-xmark text-brand-coral mr-2"></i> <strong>FORBIDDEN!</strong> ${explanation}`;
+      }
+    }
+
+    /* Slide 9 Oranges Choice */
+    function checkOrangeChoice(btn, isBest, explanation) {
+      document.querySelectorAll('.orange-option').forEach(opt => {
+        opt.classList.remove('border-emerald-500', 'bg-emerald-50', 'border-brand-coral', 'bg-brand-coral-pale');
+      });
+
+      const feedback = document.getElementById('orange-feedback');
+
+      if (isBest) {
+        playSound('correct');
+        btn.classList.add('border-emerald-500', 'bg-emerald-50');
+        feedback.className = "p-4 bg-emerald-50 border border-emerald-400 rounded-2xl text-base md:text-lg text-emerald-900 text-center font-bold";
+        feedback.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600 mr-2"></i> ${explanation}`;
+        triggerConfetti();
+      } else {
+        playSound('wrong');
+        btn.classList.add('border-brand-coral', 'bg-brand-coral-pale', 'animate-shake');
+        setTimeout(() => btn.classList.remove('animate-shake'), 400);
+        feedback.className = "p-4 bg-brand-coral-pale border border-brand-coral/40 rounded-2xl text-base md:text-lg text-brand-coral-dark text-center font-bold";
+        feedback.innerHTML = `<i class="fa-solid fa-circle-xmark text-brand-coral mr-2"></i> ${explanation}`;
+      }
+    }
+
+    /* Slide 10 Code Runner Simulator */
+    let currentStudentName = "Alex";
+    let printLineAdded = false;
+
+    function addPrintCommand() {
+      playSound('pop');
+      printLineAdded = true;
+      document.getElementById('code-line-2').innerHTML = `<span class="text-brand-yellow font-bold">print</span><span class="text-white">(name)</span>`;
+    }
+
+    function runPythonSim() {
+      const output = document.getElementById('terminal-output');
+      if (!printLineAdded) {
+        playSound('wrong');
+        output.className = "text-base text-amber-400 font-bold pt-2";
+        output.innerText = "⚠️ Variable created, but you haven't added 'print(name)' yet!";
+      } else {
+        playSound('correct');
+        output.className = "text-2xl text-brand-yellow font-bold font-code pt-2 animate-bounce-gentle";
+        output.innerText = `> ${currentStudentName}`;
       }
     }
 
@@ -1109,32 +1161,46 @@
     let bs2Done = false;
 
     function checkBrainstorm1(btn, isCorrect) {
-      document.querySelectorAll('.bs1-opt').forEach(b => b.classList.remove('bg-emerald-600', 'bg-red-600'));
-      if (isCorrect) {
-        playSound('correct');
-        btn.classList.add('bg-emerald-600');
-        bs1Done = true;
-        checkBrainstormProgress();
-      } else {
-        playSound('wrong');
-        btn.classList.add('bg-red-600');
-        bs1Done = false;
-      }
-    }
+  // Reset inline background styles for all option buttons
+  document.querySelectorAll('.bs1-opt').forEach(b => {
+    b.style.backgroundColor = '';
+    b.style.color = '';
+  });
 
-    function checkBrainstorm2(btn, isCorrect) {
-      document.querySelectorAll('.bs2-opt').forEach(b => b.classList.remove('bg-emerald-600', 'bg-red-600'));
-      if (isCorrect) {
-        playSound('correct');
-        btn.classList.add('bg-emerald-600');
-        bs2Done = true;
-        checkBrainstormProgress();
-      } else {
-        playSound('wrong');
-        btn.classList.add('bg-red-600');
-        bs2Done = false;
-      }
-    }
+  if (isCorrect) {
+    playSound('correct');
+    btn.style.backgroundColor = '#059669'; // Emerald Green
+    btn.style.color = '#ffffff';
+    bs1Done = true;
+    checkBrainstormProgress();
+  } else {
+    playSound('wrong');
+    btn.style.backgroundColor = '#dc2626'; // Red / Coral
+    btn.style.color = '#ffffff';
+    bs1Done = false;
+  }
+}
+function checkBrainstorm2(btn, isCorrect) {
+  // Reset inline background styles for all option buttons
+  document.querySelectorAll('.bs2-opt').forEach(b => {
+    b.style.backgroundColor = '';
+    b.style.color = '';
+  });
+
+  if (isCorrect) {
+    playSound('correct');
+    btn.style.backgroundColor = '#059669'; // Emerald Green
+    btn.style.color = '#ffffff';
+    bs1Done = true;
+    checkBrainstormProgress();
+  } else {
+    playSound('wrong');
+    btn.style.backgroundColor = '#dc2626'; // Red / Coral
+    btn.style.color = '#ffffff';
+    bs1Done = false;
+  }
+}
+
 
     function checkBrainstormProgress() {
       if (bs1Done && bs2Done) {
@@ -1143,110 +1209,7 @@
       }
     }
 
-    /* Slide 8 Detective Chip Sorting */
-    function sortDetectiveName(chip, nameStr, isValid, explanation) {
-      const feedback = document.getElementById('detective-feedback');
-
-      if (isValid) {
-        playSound('correct');
-        chip.remove();
-        const allowedBox = document.getElementById('allowed-names-container');
-        const item = document.createElement('div');
-        item.className = 'bg-emerald-900/80 border border-emerald-500 text-emerald-200 font-code text-xs px-2.5 py-1.5 rounded-xl font-bold flex justify-between items-center';
-        item.innerHTML = `<span>${nameStr}</span> <i class="fa-solid fa-check text-emerald-400"></i>`;
-        allowedBox.appendChild(item);
-
-        feedback.innerHTML = `<span class="text-emerald-400 font-bold">ALLOWED!</span> ${nameStr}: ${explanation}`;
-      } else {
-        playSound('wrong');
-        chip.remove();
-        const forbiddenBox = document.getElementById('forbidden-names-container');
-        const item = document.createElement('div');
-        item.className = 'bg-red-900/80 border border-red-500 text-red-200 font-code text-xs px-2.5 py-1.5 rounded-xl font-bold flex justify-between items-center';
-        item.innerHTML = `<span>${nameStr}</span> <i class="fa-solid fa-xmark text-red-400"></i>`;
-        forbiddenBox.appendChild(item);
-
-        feedback.innerHTML = `<span class="text-red-400 font-bold">FORBIDDEN!</span> ${nameStr}: ${explanation}`;
-      }
-    }
-
-    /* Slide 9 Oranges Choice */
-    function checkOrangeChoice(btn, isBest, explanation) {
-      document.querySelectorAll('.orange-option').forEach(opt => {
-        opt.classList.remove('border-emerald-500', 'bg-emerald-950/80', 'border-red-500', 'bg-red-950/80');
-      });
-
-      const feedback = document.getElementById('orange-feedback');
-
-      if (isBest) {
-        playSound('correct');
-        btn.classList.add('border-emerald-500', 'bg-emerald-950/80');
-        feedback.className = "p-3 bg-emerald-950 border border-emerald-500 rounded-2xl text-xs md:text-sm text-emerald-300 text-center font-bold";
-        feedback.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> ${explanation}`;
-        triggerConfetti();
-      } else {
-        playSound('wrong');
-        btn.classList.add('border-red-500', 'bg-red-950/80', 'animate-shake');
-        setTimeout(() => btn.classList.remove('animate-shake'), 400);
-        feedback.className = "p-3 bg-red-950 border border-red-500 rounded-2xl text-xs md:text-sm text-red-300 text-center font-bold";
-        feedback.innerHTML = `<i class="fa-solid fa-circle-xmark mr-2"></i> ${explanation}`;
-      }
-    }
-
-    /* Slide 10 Hands-on Code Simulator */
-    let currentStudentName = "Alex";
-    let printLineAdded = false;
-
-    function setCodeName(newName) {
-      playSound('pop');
-      currentStudentName = newName;
-      document.getElementById('code-variable-val').innerText = `"${newName}"`;
-    }
-
-    function addPrintCommand() {
-      playSound('pop');
-      printLineAdded = true;
-      document.getElementById('code-line-2').innerHTML = `<span class="text-amber-400 font-bold">print</span><span class="text-white">(name)</span>`;
-    }
-
-    function runPythonSim() {
-      const output = document.getElementById('terminal-output');
-      if (!printLineAdded) {
-        playSound('wrong');
-        output.className = "text-xs text-amber-400 font-bold pt-2";
-        output.innerText = "⚠️ Variable created, but you haven't added 'print(name)' yet!";
-      } else {
-        playSound('correct');
-        output.className = "text-xl text-yellow-300 font-bold font-code pt-2 animate-bounce-gentle";
-        output.innerText = `> ${currentStudentName}`;
-      }
-    }
-
-    /* Slide 11 Brainstorming Questions */
-    function checkBrainstorm1(btn, isCorrect) {
-      document.querySelectorAll('.bs1-opt').forEach(b => b.classList.remove('bg-emerald-600', 'bg-red-600'));
-      if (isCorrect) {
-        playSound('correct');
-        btn.classList.add('bg-emerald-600');
-      } else {
-        playSound('wrong');
-        btn.classList.add('bg-red-600');
-      }
-    }
-
-    function checkBrainstorm2(btn, isCorrect) {
-      document.querySelectorAll('.bs2-opt').forEach(b => b.classList.remove('bg-emerald-600', 'bg-red-600'));
-      if (isCorrect) {
-        playSound('correct');
-        btn.classList.add('bg-emerald-600');
-        triggerConfetti();
-      } else {
-        playSound('wrong');
-        btn.classList.add('bg-red-600');
-      }
-    }
-
-    /* Confetti Animation */
+    /* Confetti Canvas Animation */
     function triggerConfetti() {
       playSound('correct');
       const canvas = document.getElementById('confetti-canvas');
@@ -1255,13 +1218,13 @@
       canvas.height = window.innerHeight;
 
       const particles = [];
-      const colors = ['#facc15', '#a855f7', '#38bdf8', '#4ade80', '#f43f5e'];
+      const colors = ['#5E48C4', '#FFD071', '#59E4FB', '#ED5661', '#7B6ED4'];
 
-      for (let i = 0; i < 70; i++) {
+      for (let i = 0; i < 80; i++) {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height - canvas.height,
-          size: Math.random() * 8 + 4,
+          size: Math.random() * 10 + 5,
           color: colors[Math.floor(Math.random() * colors.length)],
           vy: Math.random() * 3 + 2,
           vx: Math.random() * 2 - 1,

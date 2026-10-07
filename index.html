@@ -166,32 +166,25 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between p-3 md:p-6 bg-brand-purple-ghost text-brand-near-black">
+<body class="min-h-screen flex flex-col justify-between p-3 md:p-6 bg-brand-purple text-brand-near-black">
 
-  <header class="w-full max-w-6xl mx-auto mb-4 flex flex-wrap items-center justify-between gap-3 bg-white border-2 border-brand-purple-pale p-4 md:p-5 rounded-2xl shadow-sm">
-    <div class="flex items-center gap-3.5">
-      <div class="bg-brand-purple text-white p-3.5 rounded-2xl font-extrabold text-2xl flex items-center justify-center shadow-md">
-        <i class="fa-solid fa-code"></i>
-      </div>
-      <div>
-        <h1 class="font-extrabold text-xl md:text-2xl text-brand-purple tracking-tight">Python Variables for Kids</h1>
-        <p class="text-xs md:text-sm text-brand-dark-grey font-medium">Alphagen Learning Interactive Module</p>
-      </div>
-    </div>
-
-    <!-- Progress Dots & Controls -->
-    <div class="flex items-center gap-4">
-      <div class="hidden sm:flex items-center gap-2" id="dots-container">
-        <!-- Dots generated dynamically in JS -->
-      </div>
-      <div class="bg-brand-purple-pale border border-brand-purple-mid/30 px-4 py-2 rounded-xl font-bold text-brand-purple text-base">
-        Slide <span id="current-slide-num">1</span> / <span id="total-slides-num">11</span>
-      </div>
-      <button id="sound-toggle" onclick="toggleSound()" class="bg-brand-purple-ghost hover:bg-brand-purple-pale text-brand-purple p-3 rounded-xl transition-all border border-brand-purple-pale" title="Toggle Sound Effects">
+  <header class="w-full bg-brand-purple px-4 py-3.5 flex flex-wrap items-center justify-between gap-3 text-white shadow-md">
+    <div class="flex items-center gap-3">
+      <a href="#" class="bg-brand-yellow hover:bg-brand-yellow-dark text-brand-near-black px-4 py-2 rounded-xl font-extrabold text-xs md:text-sm shadow-sm transition-all flex items-center gap-2">
+        <span class="tracking-wide">ALPHAGEN LEARNING</span>
+      </a>
+      <span class="font-extrabold text-base md:text-xl tracking-tight text-white">Python Variables: Interactive Exploration</span>
+      <button id="sound-toggle" onclick="toggleSound()" class="bg-brand-purple-ghost hover:bg-brand-purple-pale text-brand-purple p-3 rounded-xl transition-all border border-brand-purple-pale align-right" title="Toggle Sound Effects">
         <i class="fa-solid fa-volume-high text-xl" id="sound-icon"></i>
       </button>
     </div>
+
+    <!-- Right Controls matching reference -->
+    
   </header>
+
+
+   
 
   <main class="w-full flex-grow flex items-center justify-center">
     <div class="slide-stage w-full bg-white border-2 border-brand-purple-pale rounded-3xl shadow-xl p-6 md:p-9 flex flex-col justify-between overflow-hidden relative">
